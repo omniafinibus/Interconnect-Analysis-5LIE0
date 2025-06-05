@@ -1,0 +1,850 @@
+import "routers/degree2/RouterLevel1.poosl"
+import "routers/degree2/RouterLevel2.poosl"
+import "routers/degree2/RouterLevel3.poosl"
+import "routers/degree2/RouterLevel4.poosl"
+import "routers/degree2/RouterLevel5.poosl"
+
+cluster class FatTreeDegree2T25 (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+
+ports
+	// Node input ports 
+	In1, In2, In3, In4, 
+	In5, In6, In7, In8, 
+	In9, In10,In11,In12,
+	In13,In14,In15,In16,
+	In17,In18,In19,In20,
+	In21,In22,In23,In24,
+	In25
+
+	// Node output ports
+	Out1, Out2, Out3, Out4, 
+	Out5, Out6, Out7, Out8, 
+	Out9, Out10,Out11,Out12,
+	Out13,Out14,Out15,Out16,
+	Out17,Out18,Out19,Out20,
+	Out21,Out22,Out23,Out24,
+	Out25
+
+instances
+	F1UY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY27:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY28:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY27:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY28:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY29:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY30:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY31:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3UY32:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY27:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY28:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY29:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY30:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY31:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4UY32:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY27:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY28:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY27:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY28:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY29:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY30:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY31:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F4DY32:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY9:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY10:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY11:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY12:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY13:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY14:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY15:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY16:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY17:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY18:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY19:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY20:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY21:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY22:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY23:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY24:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY25:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY26:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY27:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY28:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY29:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY30:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY31:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F5DY32:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	RL1Y1: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 1)
+	RL1Y2: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 2)
+	RL1Y3: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 3)
+	RL1Y4: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 4)
+	RL1Y5: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 5)
+	RL1Y6: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 6)
+	RL1Y7: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 7)
+	RL1Y8: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 8)
+	RL1Y9: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 9)
+	RL1Y10: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 10)
+	RL1Y11: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 11)
+	RL1Y12: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 12)
+	RL1Y13: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 13)
+	RL2Y1: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 1)
+	RL2Y2: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 2)
+	RL2Y3: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 3)
+	RL2Y4: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 4)
+	RL2Y5: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 5)
+	RL2Y6: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 6)
+	RL2Y7: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 7)
+	RL3Y1: RouterDegree2Level3(RouterProcessingTime := RouterProcessingTime, Y := 1)
+	RL3Y2: RouterDegree2Level3(RouterProcessingTime := RouterProcessingTime, Y := 2)
+	RL3Y3: RouterDegree2Level3(RouterProcessingTime := RouterProcessingTime, Y := 3)
+	RL3Y4: RouterDegree2Level3(RouterProcessingTime := RouterProcessingTime, Y := 4)
+	RL4Y1: RouterDegree2Level4(RouterProcessingTime := RouterProcessingTime, Y := 1)
+	RL4Y2: RouterDegree2Level4(RouterProcessingTime := RouterProcessingTime, Y := 2)
+	RootRouter: RouterDegree2Level5(RouterProcessingTime := RouterProcessingTime, Y := 1)
+
+channels
+	// In  -> RL1
+	{In1,  RL1Y1.IB1}
+	{In2,  RL1Y1.IB2}
+	{In3,  RL1Y2.IB1}
+	{In4,  RL1Y2.IB2}
+	{In5,  RL1Y3.IB1}
+	{In6,  RL1Y3.IB2}
+	{In7,  RL1Y4.IB1}
+	{In8,  RL1Y4.IB2}
+	{In9,  RL1Y5.IB1}
+	{In10, RL1Y5.IB2}
+	{In11, RL1Y6.IB1}
+	{In12, RL1Y6.IB2}
+	{In13, RL1Y7.IB1}
+	{In14, RL1Y7.IB2}
+	{In15, RL1Y8.IB1}
+	{In16, RL1Y8.IB2}
+	{In17, RL1Y9.IB1}
+	{In18, RL1Y9.IB2}
+	{In19, RL1Y10.IB1}
+	{In20, RL1Y10.IB2}
+	{In21, RL1Y11.IB1}
+	{In22, RL1Y11.IB2}
+	{In23, RL1Y12.IB1}
+	{In24, RL1Y12.IB2}
+	{In25, RL1Y13.IB1}
+
+	// RL1 -> F1U
+	{RL1Y1.OT1,  F1UY1.In}
+	{RL1Y1.OT2,  F1UY2.In}
+	{RL1Y2.OT1,  F1UY3.In}
+	{RL1Y2.OT2,  F1UY4.In}
+	{RL1Y3.OT1,  F1UY5.In}
+	{RL1Y3.OT2,  F1UY6.In}
+	{RL1Y4.OT1,  F1UY7.In}
+	{RL1Y4.OT2,  F1UY8.In}
+	{RL1Y5.OT1,  F1UY9.In}
+	{RL1Y5.OT2,  F1UY10.In}
+	{RL1Y6.OT1,  F1UY11.In}
+	{RL1Y6.OT2,  F1UY12.In}
+	{RL1Y7.OT1,  F1UY13.In}
+	{RL1Y7.OT2,  F1UY14.In}
+	{RL1Y8.OT1,  F1UY15.In}
+	{RL1Y8.OT2,  F1UY16.In}
+	{RL1Y9.OT1,  F1UY17.In}
+	{RL1Y9.OT2,  F1UY18.In}
+	{RL1Y10.OT1, F1UY19.In}
+	{RL1Y10.OT2, F1UY20.In}
+	{RL1Y11.OT1, F1UY21.In}
+	{RL1Y11.OT2, F1UY22.In}
+	{RL1Y12.OT1, F1UY23.In}
+	{RL1Y12.OT2, F1UY24.In}
+	{RL1Y13.OT1, F1UY25.In}
+	{RL1Y13.OT2, F1UY26.In}
+
+	// F1U -> RL2
+	{F1UY1.Out,  RL2Y1.IB1}
+	{F1UY2.Out,  RL2Y1.IB2}
+	{F1UY3.Out,  RL2Y1.IB3}
+	{F1UY4.Out,  RL2Y1.IB4}
+	{F1UY5.Out,  RL2Y2.IB1}
+	{F1UY6.Out,  RL2Y2.IB2}
+	{F1UY7.Out,  RL2Y2.IB3}
+	{F1UY8.Out,  RL2Y2.IB4}
+	{F1UY9.Out,  RL2Y3.IB1}
+	{F1UY10.Out, RL2Y3.IB2}
+	{F1UY11.Out, RL2Y3.IB3}
+	{F1UY12.Out, RL2Y3.IB4}
+	{F1UY13.Out, RL2Y4.IB1}
+	{F1UY14.Out, RL2Y4.IB2}
+	{F1UY15.Out, RL2Y4.IB3}
+	{F1UY16.Out, RL2Y4.IB4}
+	{F1UY17.Out, RL2Y5.IB1}
+	{F1UY18.Out, RL2Y5.IB2}
+	{F1UY19.Out, RL2Y5.IB3}
+	{F1UY20.Out, RL2Y5.IB4}
+	{F1UY21.Out, RL2Y6.IB1}
+	{F1UY22.Out, RL2Y6.IB2}
+	{F1UY23.Out, RL2Y6.IB3}
+	{F1UY24.Out, RL2Y6.IB4}
+	{F1UY25.Out, RL2Y7.IB1}
+	{F1UY26.Out, RL2Y7.IB2}
+
+	// RL2 -> F2U
+	{RL2Y1.OT1, F2UY1.In}
+	{RL2Y1.OT2, F2UY2.In}
+	{RL2Y1.OT3, F2UY3.In}
+	{RL2Y1.OT4, F2UY4.In}
+	{RL2Y2.OT1, F2UY5.In}
+	{RL2Y2.OT2, F2UY6.In}
+	{RL2Y2.OT3, F2UY7.In}
+	{RL2Y2.OT4, F2UY8.In}
+	{RL2Y3.OT1, F2UY9.In}
+	{RL2Y3.OT2, F2UY10.In}
+	{RL2Y3.OT3, F2UY11.In}
+	{RL2Y3.OT4, F2UY12.In}
+	{RL2Y4.OT1, F2UY13.In}
+	{RL2Y4.OT2, F2UY14.In}
+	{RL2Y4.OT3, F2UY15.In}
+	{RL2Y4.OT4, F2UY16.In}
+	{RL2Y5.OT1, F2UY17.In}
+	{RL2Y5.OT2, F2UY18.In}
+	{RL2Y5.OT3, F2UY19.In}
+	{RL2Y5.OT4, F2UY20.In}
+	{RL2Y6.OT1, F2UY21.In}
+	{RL2Y6.OT2, F2UY22.In}
+	{RL2Y6.OT3, F2UY23.In}
+	{RL2Y6.OT4, F2UY24.In}
+	{RL2Y7.OT1, F2UY25.In}
+	{RL2Y7.OT2, F2UY26.In}
+	{RL2Y7.OT3, F2UY27.In}
+	{RL2Y7.OT4, F2UY28.In}
+
+	// F2U -> RL3
+	{F2UY1.Out,  RL3Y1.IB1}
+	{F2UY2.Out,  RL3Y1.IB2}
+	{F2UY3.Out,  RL3Y1.IB3}
+	{F2UY4.Out,  RL3Y1.IB4}
+	{F2UY5.Out,  RL3Y1.IB5}
+	{F2UY6.Out,  RL3Y1.IB6}
+	{F2UY7.Out,  RL3Y1.IB7}
+	{F2UY8.Out,  RL3Y1.IB8}
+	{F2UY9.Out,  RL3Y2.IB1}
+	{F2UY10.Out, RL3Y2.IB2}
+	{F2UY11.Out, RL3Y2.IB3}
+	{F2UY12.Out, RL3Y2.IB4}
+	{F2UY13.Out, RL3Y2.IB5}
+	{F2UY14.Out, RL3Y2.IB6}
+	{F2UY15.Out, RL3Y2.IB7}
+	{F2UY16.Out, RL3Y2.IB8}
+	{F2UY17.Out, RL3Y3.IB1}
+	{F2UY18.Out, RL3Y3.IB2}
+	{F2UY19.Out, RL3Y3.IB3}
+	{F2UY20.Out, RL3Y3.IB4}
+	{F2UY21.Out, RL3Y3.IB5}
+	{F2UY22.Out, RL3Y3.IB6}
+	{F2UY23.Out, RL3Y3.IB7}
+	{F2UY24.Out, RL3Y3.IB8}
+	{F2UY25.Out, RL3Y4.IB1}
+	{F2UY26.Out, RL3Y4.IB2}
+	{F2UY27.Out, RL3Y4.IB3}
+	{F2UY28.Out, RL3Y4.IB4}
+
+	// RL3 -> F3U
+	{RL3Y1.OT1, F3UY1.In}
+	{RL3Y1.OT2, F3UY2.In}
+	{RL3Y1.OT3, F3UY3.In}
+	{RL3Y1.OT4, F3UY4.In}
+	{RL3Y1.OT5, F3UY5.In}
+	{RL3Y1.OT6, F3UY6.In}
+	{RL3Y1.OT7, F3UY7.In}
+	{RL3Y1.OT8, F3UY8.In}
+	{RL3Y2.OT1, F3UY9.In}
+	{RL3Y2.OT2, F3UY10.In}
+	{RL3Y2.OT3, F3UY11.In}
+	{RL3Y2.OT4, F3UY12.In}
+	{RL3Y2.OT5, F3UY13.In}
+	{RL3Y2.OT6, F3UY14.In}
+	{RL3Y2.OT7, F3UY15.In}
+	{RL3Y2.OT8, F3UY16.In}
+	{RL3Y3.OT1, F3UY17.In}
+	{RL3Y3.OT2, F3UY18.In}
+	{RL3Y3.OT3, F3UY19.In}
+	{RL3Y3.OT4, F3UY20.In}
+	{RL3Y3.OT5, F3UY21.In}
+	{RL3Y3.OT6, F3UY22.In}
+	{RL3Y3.OT7, F3UY23.In}
+	{RL3Y3.OT8, F3UY24.In}
+	{RL3Y4.OT1, F3UY25.In}
+	{RL3Y4.OT2, F3UY26.In}
+	{RL3Y4.OT3, F3UY27.In}
+	{RL3Y4.OT4, F3UY28.In}
+	{RL3Y4.OT5, F3UY29.In}
+	{RL3Y4.OT6, F3UY30.In}
+	{RL3Y4.OT7, F3UY31.In}
+	{RL3Y4.OT8, F3UY32.In}
+
+	// F3U -> RL3
+	{F3UY1.Out,  RL4Y1.IB1}
+	{F3UY2.Out,  RL4Y1.IB2}
+	{F3UY3.Out,  RL4Y1.IB3}
+	{F3UY4.Out,  RL4Y1.IB4}
+	{F3UY5.Out,  RL4Y1.IB5}
+	{F3UY6.Out,  RL4Y1.IB6}
+	{F3UY7.Out,  RL4Y1.IB7}
+	{F3UY8.Out,  RL4Y1.IB8}
+	{F3UY9.Out,  RL4Y1.IB9}
+	{F3UY10.Out, RL4Y1.IB10}
+	{F3UY11.Out, RL4Y1.IB11}
+	{F3UY12.Out, RL4Y1.IB12}
+	{F3UY13.Out, RL4Y1.IB13}
+	{F3UY14.Out, RL4Y1.IB14}
+	{F3UY15.Out, RL4Y1.IB15}
+	{F3UY16.Out, RL4Y1.IB16}
+	{F3UY17.Out, RL4Y2.IB1}
+	{F3UY18.Out, RL4Y2.IB2}
+	{F3UY19.Out, RL4Y2.IB3}
+	{F3UY20.Out, RL4Y2.IB4}
+	{F3UY21.Out, RL4Y2.IB5}
+	{F3UY22.Out, RL4Y2.IB6}
+	{F3UY23.Out, RL4Y2.IB7}
+	{F3UY24.Out, RL4Y2.IB8}
+	{F3UY25.Out, RL4Y2.IB9}
+	{F3UY26.Out, RL4Y2.IB10}
+	{F3UY27.Out, RL4Y2.IB11}
+	{F3UY28.Out, RL4Y2.IB12}
+	{F3UY29.Out, RL4Y2.IB13}
+	{F3UY30.Out, RL4Y2.IB14}
+	{F3UY31.Out, RL4Y2.IB15}
+	{F3UY32.Out, RL4Y2.IB16}
+
+	// RL4 -> F4U
+	{RL4Y1.OT1,  F4UY1.In}
+	{RL4Y1.OT2,  F4UY2.In}
+	{RL4Y1.OT3,  F4UY3.In}
+	{RL4Y1.OT4,  F4UY4.In}
+	{RL4Y1.OT5,  F4UY5.In}
+	{RL4Y1.OT6,  F4UY6.In}
+	{RL4Y1.OT7,  F4UY7.In}
+	{RL4Y1.OT8,  F4UY8.In}
+	{RL4Y1.OT9,  F4UY9.In}
+	{RL4Y1.OT10, F4UY10.In}
+	{RL4Y1.OT11, F4UY11.In}
+	{RL4Y1.OT12, F4UY12.In}
+	{RL4Y1.OT13, F4UY13.In}
+	{RL4Y1.OT14, F4UY14.In}
+	{RL4Y1.OT15, F4UY15.In}
+	{RL4Y1.OT16, F4UY16.In}
+	{RL4Y2.OT1,  F4UY17.In}
+	{RL4Y2.OT2,  F4UY18.In}
+	{RL4Y2.OT3,  F4UY19.In}
+	{RL4Y2.OT4,  F4UY20.In}
+	{RL4Y2.OT5,  F4UY21.In}
+	{RL4Y2.OT6,  F4UY22.In}
+	{RL4Y2.OT7,  F4UY23.In}
+	{RL4Y2.OT8,  F4UY24.In}
+	{RL4Y2.OT9,  F4UY25.In}
+	{RL4Y2.OT10, F4UY26.In}
+	{RL4Y2.OT11, F4UY27.In}
+	{RL4Y2.OT12, F4UY28.In}
+	{RL4Y2.OT13, F4UY29.In}
+	{RL4Y2.OT14, F4UY30.In}
+	{RL4Y2.OT15, F4UY31.In}
+	{RL4Y2.OT16, F4UY32.In}
+
+	// F4U -> RL5
+	{F4UY1.Out,  RootRouter.IB1}
+	{F4UY2.Out,  RootRouter.IB2}
+	{F4UY3.Out,  RootRouter.IB3}
+	{F4UY4.Out,  RootRouter.IB4}
+	{F4UY5.Out,  RootRouter.IB5}
+	{F4UY6.Out,  RootRouter.IB6}
+	{F4UY7.Out,  RootRouter.IB7}
+	{F4UY8.Out,  RootRouter.IB8}
+	{F4UY9.Out,  RootRouter.IB9}
+	{F4UY10.Out, RootRouter.IB10}
+	{F4UY11.Out, RootRouter.IB11}
+	{F4UY12.Out, RootRouter.IB12}
+	{F4UY13.Out, RootRouter.IB13}
+	{F4UY14.Out, RootRouter.IB14}
+	{F4UY15.Out, RootRouter.IB15}
+	{F4UY16.Out, RootRouter.IB16}
+	{F4UY17.Out, RootRouter.IB17}
+	{F4UY18.Out, RootRouter.IB18}
+	{F4UY19.Out, RootRouter.IB19}
+	{F4UY20.Out, RootRouter.IB20}
+	{F4UY21.Out, RootRouter.IB21}
+	{F4UY22.Out, RootRouter.IB22}
+	{F4UY23.Out, RootRouter.IB23}
+	{F4UY24.Out, RootRouter.IB24}
+	{F4UY25.Out, RootRouter.IB25}
+	{F4UY26.Out, RootRouter.IB26}
+	{F4UY27.Out, RootRouter.IB27}
+	{F4UY28.Out, RootRouter.IB28}
+	{F4UY29.Out, RootRouter.IB29}
+	{F4UY30.Out, RootRouter.IB30}
+	{F4UY31.Out, RootRouter.IB31}
+	{F4UY32.Out, RootRouter.IB32}
+
+	// F5D <- RL5
+	{RootRouter.OB1,  F5DY1.In}
+	{RootRouter.OB2,  F5DY2.In}
+	{RootRouter.OB3,  F5DY3.In}
+	{RootRouter.OB4,  F5DY4.In}
+	{RootRouter.OB5,  F5DY5.In}
+	{RootRouter.OB6,  F5DY6.In}
+	{RootRouter.OB7,  F5DY7.In}
+	{RootRouter.OB8,  F5DY8.In}
+	{RootRouter.OB9,  F5DY9.In}
+	{RootRouter.OB10, F5DY10.In}
+	{RootRouter.OB11, F5DY11.In}
+	{RootRouter.OB12, F5DY12.In}
+	{RootRouter.OB13, F5DY13.In}
+	{RootRouter.OB14, F5DY14.In}
+	{RootRouter.OB15, F5DY15.In}
+	{RootRouter.OB16, F5DY16.In}
+	{RootRouter.OB17, F5DY17.In}
+	{RootRouter.OB18, F5DY18.In}
+	{RootRouter.OB19, F5DY19.In}
+	{RootRouter.OB20, F5DY20.In}
+	{RootRouter.OB21, F5DY21.In}
+	{RootRouter.OB22, F5DY22.In}
+	{RootRouter.OB23, F5DY23.In}
+	{RootRouter.OB24, F5DY24.In}
+	{RootRouter.OB25, F5DY25.In}
+	{RootRouter.OB26, F5DY26.In}
+	{RootRouter.OB27, F5DY27.In}
+	{RootRouter.OB28, F5DY28.In}
+	{RootRouter.OB29, F5DY29.In}
+	{RootRouter.OB30, F5DY30.In}
+	{RootRouter.OB31, F5DY31.In}
+	{RootRouter.OB32, F5DY32.In}
+
+	// RL4 <- F5D
+	{F5DY1.Out,  RL4Y1.IT1}
+	{F5DY2.Out,  RL4Y1.IT2}
+	{F5DY3.Out,  RL4Y1.IT3}
+	{F5DY4.Out,  RL4Y1.IT4}
+	{F5DY5.Out,  RL4Y1.IT5}
+	{F5DY6.Out,  RL4Y1.IT6}
+	{F5DY7.Out,  RL4Y1.IT7}
+	{F5DY8.Out,  RL4Y1.IT8}
+	{F5DY9.Out,  RL4Y1.IT9}
+	{F5DY10.Out, RL4Y1.IT10}
+	{F5DY11.Out, RL4Y1.IT11}
+	{F5DY12.Out, RL4Y1.IT12}
+	{F5DY13.Out, RL4Y1.IT13}
+	{F5DY14.Out, RL4Y1.IT14}
+	{F5DY15.Out, RL4Y1.IT15}
+	{F5DY16.Out, RL4Y1.IT16}
+	{F5DY17.Out, RL4Y2.IT1}
+	{F5DY18.Out, RL4Y2.IT2}
+	{F5DY19.Out, RL4Y2.IT3}
+	{F5DY20.Out, RL4Y2.IT4}
+	{F5DY21.Out, RL4Y2.IT5}
+	{F5DY22.Out, RL4Y2.IT6}
+	{F5DY23.Out, RL4Y2.IT7}
+	{F5DY24.Out, RL4Y2.IT8}
+	{F5DY25.Out, RL4Y2.IT9}
+	{F5DY26.Out, RL4Y2.IT10}
+	{F5DY27.Out, RL4Y2.IT11}
+	{F5DY28.Out, RL4Y2.IT12}
+	{F5DY29.Out, RL4Y2.IT13}
+	{F5DY30.Out, RL4Y2.IT14}
+	{F5DY31.Out, RL4Y2.IT15}
+	{F5DY32.Out, RL4Y2.IT16}
+
+	// F4D <- RL4
+	{RL4Y1.OB1,  F4DY1.In}
+	{RL4Y1.OB2,  F4DY2.In}
+	{RL4Y1.OB3,  F4DY3.In}
+	{RL4Y1.OB4,  F4DY4.In}
+	{RL4Y1.OB5,  F4DY5.In}
+	{RL4Y1.OB6,  F4DY6.In}
+	{RL4Y1.OB7,  F4DY7.In}
+	{RL4Y1.OB8,  F4DY8.In}
+	{RL4Y1.OB9,  F4DY9.In}
+	{RL4Y1.OB10, F4DY10.In}
+	{RL4Y1.OB11, F4DY11.In}
+	{RL4Y1.OB12, F4DY12.In}
+	{RL4Y1.OB13, F4DY13.In}
+	{RL4Y1.OB14, F4DY14.In}
+	{RL4Y1.OB15, F4DY15.In}
+	{RL4Y1.OB16, F4DY16.In}
+	{RL4Y2.OB1,  F4DY17.In}
+	{RL4Y2.OB2,  F4DY18.In}
+	{RL4Y2.OB3,  F4DY19.In}
+	{RL4Y2.OB4,  F4DY20.In}
+	{RL4Y2.OB5,  F4DY21.In}
+	{RL4Y2.OB6,  F4DY22.In}
+	{RL4Y2.OB7,  F4DY23.In}
+	{RL4Y2.OB8,  F4DY24.In}
+	{RL4Y2.OB9,  F4DY25.In}
+	{RL4Y2.OB10, F4DY26.In}
+	{RL4Y2.OB11, F4DY27.In}
+	{RL4Y2.OB12, F4DY28.In}
+	{RL4Y2.OB13, F4DY29.In}
+	{RL4Y2.OB14, F4DY30.In}
+	{RL4Y2.OB15, F4DY31.In}
+	{RL4Y2.OB16, F4DY32.In}
+
+	// RL3 <- F4D
+	{F4DY1.Out,  RL3Y1.IT1}
+	{F4DY2.Out,  RL3Y1.IT2}
+	{F4DY3.Out,  RL3Y1.IT3}
+	{F4DY4.Out,  RL3Y1.IT4}
+	{F4DY5.Out,  RL3Y1.IT5}
+	{F4DY6.Out,  RL3Y1.IT6}
+	{F4DY7.Out,  RL3Y1.IT7}
+	{F4DY8.Out,  RL3Y1.IT8}
+	{F4DY9.Out,  RL3Y2.IT1}
+	{F4DY10.Out, RL3Y2.IT2}
+	{F4DY11.Out, RL3Y2.IT3}
+	{F4DY12.Out, RL3Y2.IT4}
+	{F4DY13.Out, RL3Y2.IT5}
+	{F4DY14.Out, RL3Y2.IT6}
+	{F4DY15.Out, RL3Y2.IT7}
+	{F4DY16.Out, RL3Y2.IT8}
+	{F4DY17.Out, RL3Y3.IT1}
+	{F4DY18.Out, RL3Y3.IT2}
+	{F4DY19.Out, RL3Y3.IT3}
+	{F4DY20.Out, RL3Y3.IT4}
+	{F4DY21.Out, RL3Y3.IT5}
+	{F4DY22.Out, RL3Y3.IT6}
+	{F4DY23.Out, RL3Y3.IT7}
+	{F4DY24.Out, RL3Y3.IT8}
+	{F4DY25.Out, RL3Y4.IT1}
+	{F4DY26.Out, RL3Y4.IT2}
+	{F4DY27.Out, RL3Y4.IT3}
+	{F4DY28.Out, RL3Y4.IT4}
+	{F4DY29.Out, RL3Y4.IT5}
+	{F4DY30.Out, RL3Y4.IT6}
+	{F4DY31.Out, RL3Y4.IT7}
+	{F4DY32.Out, RL3Y4.IT8}
+
+	// F3D <- RL3
+	{RL3Y1.OB1, F3DY1.In}
+	{RL3Y1.OB2, F3DY2.In}
+	{RL3Y1.OB3, F3DY3.In}
+	{RL3Y1.OB4, F3DY4.In}
+	{RL3Y1.OB5, F3DY5.In}
+	{RL3Y1.OB6, F3DY6.In}
+	{RL3Y1.OB7, F3DY7.In}
+	{RL3Y1.OB8, F3DY8.In}
+	{RL3Y2.OB1, F3DY9.In}
+	{RL3Y2.OB2, F3DY10.In}
+	{RL3Y2.OB3, F3DY11.In}
+	{RL3Y2.OB4, F3DY12.In}
+	{RL3Y2.OB5, F3DY13.In}
+	{RL3Y2.OB6, F3DY14.In}
+	{RL3Y2.OB7, F3DY15.In}
+	{RL3Y2.OB8, F3DY16.In}
+	{RL3Y3.OB1, F3DY17.In}
+	{RL3Y3.OB2, F3DY18.In}
+	{RL3Y3.OB3, F3DY19.In}
+	{RL3Y3.OB4, F3DY20.In}
+	{RL3Y3.OB5, F3DY21.In}
+	{RL3Y3.OB6, F3DY22.In}
+	{RL3Y3.OB7, F3DY23.In}
+	{RL3Y3.OB8, F3DY24.In}
+	{RL3Y4.OB1, F3DY25.In}
+	{RL3Y4.OB2, F3DY26.In}
+	{RL3Y4.OB3, F3DY27.In}
+	{RL3Y4.OB4, F3DY28.In}
+
+	// RL2 <- F3D
+	{F3DY1.Out,  RL2Y1.IT1}
+	{F3DY2.Out,  RL2Y1.IT2}
+	{F3DY3.Out,  RL2Y1.IT3}
+	{F3DY4.Out,  RL2Y1.IT4}
+	{F3DY5.Out,  RL2Y2.IT1}
+	{F3DY6.Out,  RL2Y2.IT2}
+	{F3DY7.Out,  RL2Y2.IT3}
+	{F3DY8.Out,  RL2Y2.IT4}
+	{F3DY9.Out,  RL2Y3.IT1}
+	{F3DY10.Out, RL2Y3.IT2}
+	{F3DY11.Out, RL2Y3.IT3}
+	{F3DY12.Out, RL2Y3.IT4}
+	{F3DY13.Out, RL2Y4.IT1}
+	{F3DY14.Out, RL2Y4.IT2}
+	{F3DY15.Out, RL2Y4.IT3}
+	{F3DY16.Out, RL2Y4.IT4}
+	{F3DY17.Out, RL2Y5.IT1}
+	{F3DY18.Out, RL2Y5.IT2}
+	{F3DY19.Out, RL2Y5.IT3}
+	{F3DY20.Out, RL2Y5.IT4}
+	{F3DY21.Out, RL2Y6.IT1}
+	{F3DY22.Out, RL2Y6.IT2}
+	{F3DY23.Out, RL2Y6.IT3}
+	{F3DY24.Out, RL2Y6.IT4}
+	{F3DY25.Out, RL2Y7.IT1}
+	{F3DY26.Out, RL2Y7.IT2}
+	{F3DY27.Out, RL2Y7.IT3}
+	{F3DY28.Out, RL2Y7.IT4}
+
+	// F2D <- RL2
+	{RL2Y1.OB1, F2DY1.In}
+	{RL2Y1.OB2, F2DY2.In}
+	{RL2Y1.OB3, F2DY3.In}
+	{RL2Y1.OB4, F2DY4.In}
+	{RL2Y2.OB1, F2DY5.In}
+	{RL2Y2.OB2, F2DY6.In}
+	{RL2Y2.OB3, F2DY7.In}
+	{RL2Y2.OB4, F2DY8.In}
+	{RL2Y3.OB1, F2DY9.In}
+	{RL2Y3.OB2, F2DY10.In}
+	{RL2Y3.OB3, F2DY11.In}
+	{RL2Y3.OB4, F2DY12.In}
+	{RL2Y4.OB1, F2DY13.In}
+	{RL2Y4.OB2, F2DY14.In}
+	{RL2Y4.OB3, F2DY15.In}
+	{RL2Y4.OB4, F2DY16.In}
+	{RL2Y5.OB1, F2DY17.In}
+	{RL2Y5.OB2, F2DY18.In}
+	{RL2Y5.OB3, F2DY19.In}
+	{RL2Y5.OB4, F2DY20.In}
+	{RL2Y6.OB1, F2DY21.In}
+	{RL2Y6.OB2, F2DY22.In}
+	{RL2Y6.OB3, F2DY23.In}
+	{RL2Y6.OB4, F2DY24.In}
+	{RL2Y7.OB1, F2DY25.In}
+	{RL2Y7.OB2, F2DY26.In}
+
+	// RL1 <- F2D
+	{F2DY1.Out,  RL1Y1.IT1}
+	{F2DY2.Out,  RL1Y1.IT2}
+	{F2DY3.Out,  RL1Y2.IT1}
+	{F2DY4.Out,  RL1Y2.IT2}
+	{F2DY5.Out,  RL1Y3.IT1}
+	{F2DY6.Out,  RL1Y3.IT2}
+	{F2DY7.Out,  RL1Y4.IT1}
+	{F2DY8.Out,  RL1Y4.IT2}
+	{F2DY9.Out,  RL1Y5.IT1}
+	{F2DY10.Out, RL1Y5.IT2}
+	{F2DY11.Out, RL1Y6.IT1}
+	{F2DY12.Out, RL1Y6.IT2}
+	{F2DY13.Out, RL1Y7.IT1}
+	{F2DY14.Out, RL1Y7.IT2}
+	{F2DY15.Out, RL1Y8.IT1}
+	{F2DY16.Out, RL1Y8.IT2}
+	{F2DY17.Out, RL1Y9.IT1}
+	{F2DY18.Out, RL1Y9.IT2}
+	{F2DY19.Out, RL1Y10.IT1}
+	{F2DY20.Out, RL1Y10.IT2}
+	{F2DY21.Out, RL1Y11.IT1}
+	{F2DY22.Out, RL1Y11.IT2}
+	{F2DY23.Out, RL1Y12.IT1}
+	{F2DY24.Out, RL1Y12.IT2}
+	{F2DY25.Out, RL1Y13.IT1}
+	{F2DY26.Out, RL1Y13.IT2}
+
+	// Out <- RL1
+	{RL1Y1.OB1, Out1}
+	{RL1Y1.OB2, Out2}
+	{RL1Y2.OB1, Out3}
+	{RL1Y2.OB2, Out4}
+	{RL1Y3.OB1, Out5}
+	{RL1Y3.OB2, Out6}
+	{RL1Y4.OB1, Out7}
+	{RL1Y4.OB2, Out8}
+	{RL1Y5.OB1, Out9}
+	{RL1Y5.OB2, Out10}
+	{RL1Y6.OB1, Out11}
+	{RL1Y6.OB2, Out12}
+	{RL1Y7.OB1, Out13}
+	{RL1Y7.OB2, Out14}
+	{RL1Y8.OB1, Out15}
+	{RL1Y8.OB2, Out16}
+	{RL1Y9.OB1, Out17}
+	{RL1Y9.OB2, Out18}
+	{RL1Y10.OB1, Out19}
+	{RL1Y10.OB2, Out20}
+	{RL1Y11.OB1, Out21}
+	{RL1Y11.OB2, Out22}
+	{RL1Y12.OB1, Out23}
+	{RL1Y12.OB2, Out24}
+	{RL1Y13.OB1, Out25}

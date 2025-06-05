@@ -1,0 +1,331 @@
+import "../common/Node.poosl"
+import "BusBasedNetwork.poosl"
+
+cluster class Bus_64_nodes (AccuracyCheckInterval: Real, ArbiterProcessingTime: Real, BusTransferDelay: Real, LinkCapacity: Real, Load: Real, MeanBurstSize: Real, NIBufferCapacity: Integer)
+
+ports
+
+instances
+	N1: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 1, NumberOfNodes := 64)
+	N2: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 2, NumberOfNodes := 64)
+	N3: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 3, NumberOfNodes := 64)
+	N4: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 4, NumberOfNodes := 64)
+	N5: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 5, NumberOfNodes := 64)
+	N6: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 6, NumberOfNodes := 64)
+	N7: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 7, NumberOfNodes := 64)
+	N8: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 8, NumberOfNodes := 64)
+	N9: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 9, NumberOfNodes := 64)
+	N10: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 10, NumberOfNodes := 64)
+	N11: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 11, NumberOfNodes := 64)
+	N12: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 12, NumberOfNodes := 64)
+	N13: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 13, NumberOfNodes := 64)
+	N14: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 14, NumberOfNodes := 64)
+	N15: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 15, NumberOfNodes := 64)
+	N16: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 16, NumberOfNodes := 64)
+	N17: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 17, NumberOfNodes := 64)
+	N18: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 18, NumberOfNodes := 64)
+	N19: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 19, NumberOfNodes := 64)
+	N20: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 20, NumberOfNodes := 64)
+	N21: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 21, NumberOfNodes := 64)
+	N22: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 22, NumberOfNodes := 64)
+	N23: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 23, NumberOfNodes := 64)
+	N24: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 24, NumberOfNodes := 64)
+	N25: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 25, NumberOfNodes := 64)
+	N26: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 26, NumberOfNodes := 64)
+	N27: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 27, NumberOfNodes := 64)
+	N28: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 28, NumberOfNodes := 64)
+	N29: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 29, NumberOfNodes := 64)
+	N30: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 30, NumberOfNodes := 64)
+	N31: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 31, NumberOfNodes := 64)
+	N32: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 32, NumberOfNodes := 64)
+	N33: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 33, NumberOfNodes := 64)
+	N34: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 34, NumberOfNodes := 64)
+	N35: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 35, NumberOfNodes := 64)
+	N36: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 36, NumberOfNodes := 64)
+	N37: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 37, NumberOfNodes := 64)
+	N38: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 38, NumberOfNodes := 64)
+	N39: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 39, NumberOfNodes := 64)
+	N40: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 40, NumberOfNodes := 64)
+	N41: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 41, NumberOfNodes := 64)
+	N42: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 42, NumberOfNodes := 64)
+	N43: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 43, NumberOfNodes := 64)
+	N44: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 44, NumberOfNodes := 64)
+	N45: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 45, NumberOfNodes := 64)
+	N46: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 46, NumberOfNodes := 64)
+	N47: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 47, NumberOfNodes := 64)
+	N48: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 48, NumberOfNodes := 64)
+	N49: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 49, NumberOfNodes := 64)
+	N50: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 50, NumberOfNodes := 64)
+	N51: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 51, NumberOfNodes := 64)
+	N52: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 52, NumberOfNodes := 64)
+	N53: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 53, NumberOfNodes := 64)
+	N54: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 54, NumberOfNodes := 64)
+	N55: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 55, NumberOfNodes := 64)
+	N56: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 56, NumberOfNodes := 64)
+	N57: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 57, NumberOfNodes := 64)
+	N58: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 58, NumberOfNodes := 64)
+	N59: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 59, NumberOfNodes := 64)
+	N60: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 60, NumberOfNodes := 64)
+	N61: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 61, NumberOfNodes := 64)
+	N62: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 62, NumberOfNodes := 64)
+	N63: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 63, NumberOfNodes := 64)
+	N64: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 64, NumberOfNodes := 64)
+	Network: BusBasedNetwork64(ArbiterProcessingTime := ArbiterProcessingTime, BusTransferDelay := BusTransferDelay, NIBufferCapacity := NIBufferCapacity)
+
+channels
+	{ N1.NI, Network.Node1 }
+	{ N2.NI, Network.Node2 }
+	{ N3.NI, Network.Node3 }
+	{ N4.NI, Network.Node4 }
+	{ N5.NI, Network.Node5 }
+	{ N6.NI, Network.Node6 }
+	{ N7.NI, Network.Node7 }
+	{ N8.NI, Network.Node8 }
+	{ N9.NI, Network.Node9 }
+	{ N10.NI, Network.Node10 }
+	{ N11.NI, Network.Node11 }
+	{ N12.NI, Network.Node12 }
+	{ N13.NI, Network.Node13 }
+	{ N14.NI, Network.Node14 }
+	{ N15.NI, Network.Node15 }
+	{ N16.NI, Network.Node16 }
+	{ N17.NI, Network.Node17 }
+	{ N18.NI, Network.Node18 }
+	{ N19.NI, Network.Node19 }
+	{ N20.NI, Network.Node20 }
+	{ N21.NI, Network.Node21 }
+	{ N22.NI, Network.Node22 }
+	{ N23.NI, Network.Node23 }
+	{ N24.NI, Network.Node24 }
+	{ N25.NI, Network.Node25 }
+	{ N26.NI, Network.Node26 }
+	{ N27.NI, Network.Node27 }
+	{ N28.NI, Network.Node28 }
+	{ N29.NI, Network.Node29 }
+	{ N30.NI, Network.Node30 }
+	{ N31.NI, Network.Node31 }
+	{ N32.NI, Network.Node32 }
+	{ N33.NI, Network.Node33 }
+	{ N34.NI, Network.Node34 }
+	{ N35.NI, Network.Node35 }
+	{ N36.NI, Network.Node36 }
+	{ N37.NI, Network.Node37 }
+	{ N38.NI, Network.Node38 }
+	{ N39.NI, Network.Node39 }
+	{ N40.NI, Network.Node40 }
+	{ N41.NI, Network.Node41 }
+	{ N42.NI, Network.Node42 }
+	{ N43.NI, Network.Node43 }
+	{ N44.NI, Network.Node44 }
+	{ N45.NI, Network.Node45 }
+	{ N46.NI, Network.Node46 }
+	{ N47.NI, Network.Node47 }
+	{ N48.NI, Network.Node48 }
+	{ N49.NI, Network.Node49 }
+	{ N50.NI, Network.Node50 }
+	{ N51.NI, Network.Node51 }
+	{ N52.NI, Network.Node52 }
+	{ N53.NI, Network.Node53 }
+	{ N54.NI, Network.Node54 }
+	{ N55.NI, Network.Node55 }
+	{ N56.NI, Network.Node56 }
+	{ N57.NI, Network.Node57 }
+	{ N58.NI, Network.Node58 }
+	{ N59.NI, Network.Node59 }
+	{ N60.NI, Network.Node60 }
+	{ N61.NI, Network.Node61 }
+	{ N62.NI, Network.Node62 }
+	{ N63.NI, Network.Node63 }
+	{ N64.NI, Network.Node64 }
+
+cluster class Bus_32_nodes (AccuracyCheckInterval: Real, ArbiterProcessingTime: Real, BusTransferDelay: Real, LinkCapacity: Real, Load: Real, MeanBurstSize: Real, NIBufferCapacity: Integer)
+
+ports
+
+instances
+	N1: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 1, NumberOfNodes := 32)
+	N2: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 2, NumberOfNodes := 32)
+	N3: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 3, NumberOfNodes := 32)
+	N4: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 4, NumberOfNodes := 32)
+	N5: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 5, NumberOfNodes := 32)
+	N6: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 6, NumberOfNodes := 32)
+	N7: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 7, NumberOfNodes := 32)
+	N8: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 8, NumberOfNodes := 32)
+	N9: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 9, NumberOfNodes := 32)
+	N10: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 10, NumberOfNodes := 32)
+	N11: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 11, NumberOfNodes := 32)
+	N12: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 12, NumberOfNodes := 32)
+	N13: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 13, NumberOfNodes := 32)
+	N14: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 14, NumberOfNodes := 32)
+	N15: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 15, NumberOfNodes := 32)
+	N16: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 16, NumberOfNodes := 32)
+	N17: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 17, NumberOfNodes := 32)
+	N18: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 18, NumberOfNodes := 32)
+	N19: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 19, NumberOfNodes := 32)
+	N20: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 20, NumberOfNodes := 32)
+	N21: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 21, NumberOfNodes := 32)
+	N22: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 22, NumberOfNodes := 32)
+	N23: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 23, NumberOfNodes := 32)
+	N24: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 24, NumberOfNodes := 32)
+	N25: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 25, NumberOfNodes := 32)
+	N26: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 26, NumberOfNodes := 32)
+	N27: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 27, NumberOfNodes := 32)
+	N28: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 28, NumberOfNodes := 32)
+	N29: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 29, NumberOfNodes := 32)
+	N30: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 30, NumberOfNodes := 32)
+	N31: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 31, NumberOfNodes := 32)
+	N32: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 32, NumberOfNodes := 32)
+	Network: BusBasedNetwork32(ArbiterProcessingTime := ArbiterProcessingTime, BusTransferDelay := BusTransferDelay, NIBufferCapacity := NIBufferCapacity)
+
+channels
+	{ N1.NI, Network.Node1 }
+	{ N2.NI, Network.Node2 }
+	{ N3.NI, Network.Node3 }
+	{ N4.NI, Network.Node4 }
+	{ N5.NI, Network.Node5 }
+	{ N6.NI, Network.Node6 }
+	{ N7.NI, Network.Node7 }
+	{ N8.NI, Network.Node8 }
+	{ N9.NI, Network.Node9 }
+	{ N10.NI, Network.Node10 }
+	{ N11.NI, Network.Node11 }
+	{ N12.NI, Network.Node12 }
+	{ N13.NI, Network.Node13 }
+	{ N14.NI, Network.Node14 }
+	{ N15.NI, Network.Node15 }
+	{ N16.NI, Network.Node16 }
+	{ N17.NI, Network.Node17 }
+	{ N18.NI, Network.Node18 }
+	{ N19.NI, Network.Node19 }
+	{ N20.NI, Network.Node20 }
+	{ N21.NI, Network.Node21 }
+	{ N22.NI, Network.Node22 }
+	{ N23.NI, Network.Node23 }
+	{ N24.NI, Network.Node24 }
+	{ N25.NI, Network.Node25 }
+	{ N26.NI, Network.Node26 }
+	{ N27.NI, Network.Node27 }
+	{ N28.NI, Network.Node28 }
+	{ N29.NI, Network.Node29 }
+	{ N30.NI, Network.Node30 }
+	{ N31.NI, Network.Node31 }
+	{ N32.NI, Network.Node32 }
+
+cluster class Bus_16_nodes (AccuracyCheckInterval: Real, ArbiterProcessingTime: Real, BusTransferDelay: Real, LinkCapacity: Real, Load: Real, MeanBurstSize: Real, NIBufferCapacity: Integer)
+
+ports
+
+instances
+	N1: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 1, NumberOfNodes := 16)
+	N2: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 2, NumberOfNodes := 16)
+	N3: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 3, NumberOfNodes := 16)
+	N4: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 4, NumberOfNodes := 16)
+	N5: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 5, NumberOfNodes := 16)
+	N6: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 6, NumberOfNodes := 16)
+	N7: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 7, NumberOfNodes := 16)
+	N8: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 8, NumberOfNodes := 16)
+	N9: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 9, NumberOfNodes := 16)
+	N10: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 10, NumberOfNodes := 16)
+	N11: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 11, NumberOfNodes := 16)
+	N12: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 12, NumberOfNodes := 16)
+	N13: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 13, NumberOfNodes := 16)
+	N14: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 14, NumberOfNodes := 16)
+	N15: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 15, NumberOfNodes := 16)
+	N16: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 16, NumberOfNodes := 16)
+	Network: BusBasedNetwork16(ArbiterProcessingTime := ArbiterProcessingTime, BusTransferDelay := BusTransferDelay, NIBufferCapacity := NIBufferCapacity)
+
+channels
+	{ N1.NI, Network.Node1 }
+	{ N2.NI, Network.Node2 }
+	{ N3.NI, Network.Node3 }
+	{ N4.NI, Network.Node4 }
+	{ N5.NI, Network.Node5 }
+	{ N6.NI, Network.Node6 }
+	{ N7.NI, Network.Node7 }
+	{ N8.NI, Network.Node8 }
+	{ N9.NI, Network.Node9 }
+	{ N10.NI, Network.Node10 }
+	{ N11.NI, Network.Node11 }
+	{ N12.NI, Network.Node12 }
+	{ N13.NI, Network.Node13 }
+	{ N14.NI, Network.Node14 }
+	{ N15.NI, Network.Node15 }
+	{ N16.NI, Network.Node16 }
+
+cluster class Bus_8_nodes (AccuracyCheckInterval: Real, ArbiterProcessingTime: Real, BusTransferDelay: Real, LinkCapacity: Real, Load: Real, MeanBurstSize: Real, NIBufferCapacity: Integer)
+
+ports
+
+instances
+	N1: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 1, NumberOfNodes := 8)
+	N2: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 2, NumberOfNodes := 8)
+	N3: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 3, NumberOfNodes := 8)
+	N4: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 4, NumberOfNodes := 8)
+	N5: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 5, NumberOfNodes := 8)
+	N6: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 6, NumberOfNodes := 8)
+	N7: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 7, NumberOfNodes := 8)
+	N8: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 8, NumberOfNodes := 8)
+	Network: BusBasedNetwork8(ArbiterProcessingTime := ArbiterProcessingTime, BusTransferDelay := BusTransferDelay, NIBufferCapacity := NIBufferCapacity)
+
+channels
+	{ N1.NI, Network.Node1 }
+	{ N2.NI, Network.Node2 }
+	{ N3.NI, Network.Node3 }
+	{ N4.NI, Network.Node4 }
+	{ N5.NI, Network.Node5 }
+	{ N6.NI, Network.Node6 }
+	{ N7.NI, Network.Node7 }
+	{ N8.NI, Network.Node8 }
+
+cluster class Bus_4_nodes (AccuracyCheckInterval: Real, ArbiterProcessingTime: Real, BusTransferDelay: Real, LinkCapacity: Real, Load: Real, MeanBurstSize: Real, NIBufferCapacity: Integer)
+// cluster class representing an SoC with a bus-based network
+// Parameters:
+// 	AccuracyCheckInterval	(simulated) time interval to check accuracy of the statistical estimators 
+// 	ArbiterProcessingTime	time the arbiter takes to resolve an arbitration step 
+// 	BusTransferDelay		time it takes to transfer a packet across the bus
+// 	LinkCapacity			capacity of the link between nodes and network interfaces
+// 	Load					average traffic load generated by the nodes in the network
+// 	MeanBurstSize			average burst size of the bursty traffic generated by the noses
+// 	NIBufferCapacity		capacity of the input buffers of the network interfaces
+// 	NumberOfNodes			the number of nodes in the network
+
+ports
+
+instances
+	N1: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 1, NumberOfNodes := 4)
+	N2: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 2, NumberOfNodes := 4)
+	N3: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 3, NumberOfNodes := 4)
+	N4: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 4, NumberOfNodes := 4)
+	Network: BusBasedNetwork4(ArbiterProcessingTime := ArbiterProcessingTime, BusTransferDelay := BusTransferDelay, NIBufferCapacity := NIBufferCapacity)
+
+channels
+	{ N1.NI, Network.Node1 } 
+	{ N2.NI, Network.Node2 } 
+	{ N3.NI, Network.Node3 } 
+	{ N4.NI, Network.Node4 }
+
+	
+cluster class Bus_2_nodes (AccuracyCheckInterval: Real, ArbiterProcessingTime: Real, BusTransferDelay: Real, LinkCapacity: Real, Load: Real, MeanBurstSize: Real, 
+						   NIBufferCapacity: Integer)
+// cluster class representing an SoC with a bus-based network
+// Parameters:
+// 	AccuracyCheckInterval	(simulated) time interval to check accuracy of the statistical estimators 
+// 	ArbiterProcessingTime	time the arbiter takes to resolve an arbitration step 
+// 	BusTransferDelay		time it takes to transfer a packet across the bus
+// 	LinkCapacity			capacity of the link between nodes and network interfaces
+// 	Load					average traffic load generated by the nodes in the network
+// 	MeanBurstSize			average burst size of the bursty traffic generated by the noses
+// 	NIBufferCapacity		capacity of the input buffers of the network interfaces
+// 	NumberOfNodes			the number of nodes in the network
+
+ports
+
+instances
+	N1: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 1, NumberOfNodes := 2)
+	N2: Node(AccuracyCheckInterval := AccuracyCheckInterval, LinkCapacity := LinkCapacity, Load := Load, MeanBurstSize := MeanBurstSize, MyID := 2, NumberOfNodes := 2)
+	Network: BusBasedNetwork2(ArbiterProcessingTime := ArbiterProcessingTime, BusTransferDelay := BusTransferDelay, NIBufferCapacity := NIBufferCapacity)
+
+channels
+	{N1.NI, Network.Node1} 
+	{N2.NI, Network.Node2} 
+	

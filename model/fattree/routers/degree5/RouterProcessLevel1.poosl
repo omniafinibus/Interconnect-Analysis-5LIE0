@@ -1,0 +1,105 @@
+import "../../../common/Flit.poosl"
+import "../../../libraries/distributions.poosl"
+process class RandomUpStreamRouterDegree5Level1(ProcessingTime : Real, NodeY: Integer)
+ports
+	IT1, IT2, IT3, IT4, IT5,
+	IB1, IB2, IB3, IB4, IB5,
+	OT1, OT2, OT3, OT4, OT5,
+	OB1, OB2, OB3, OB4, OB5
+messages
+	IT1?Flit(Flit)
+	IT2?Flit(Flit)
+	IT3?Flit(Flit)
+	IT4?Flit(Flit)
+	IT5?Flit(Flit)
+	IB1?Flit(Flit)
+	IB2?Flit(Flit)
+	IB3?Flit(Flit)
+	IB4?Flit(Flit)
+	IB5?Flit(Flit)
+	OT1!Flit(Flit)
+	OT2!Flit(Flit)
+	OT3!Flit(Flit)
+	OT4!Flit(Flit)
+	OT5!Flit(Flit)
+	OB1!Flit(Flit)
+	OB2!Flit(Flit)
+	OB3!Flit(Flit)
+	OB4!Flit(Flit)
+	OB5!Flit(Flit)
+variables
+	RoutingDistribution: Distribution
+init
+	Initialise()()
+methods
+	Initialise()()
+		RoutingDistribution := new(DiscreteUniform) withParameters(1, 5);
+		TransferFlit()()
+	TransferFlit()()
+	|f: Flit, i: Integer, dest: Integer, childTerminalBase: Integer, childIndexInterval: Integer, busIndex1: Integer, busIndex2: Integer, busIndex3: Integer, busIndex4: Integer, busIndex5: Integer|//, busDegree: Integer, nodeLevel: Integer|
+
+		sel
+			IB1?Flit(f)
+		or
+			IB2?Flit(f)
+		or
+			IB3?Flit(f)
+		or
+			IB4?Flit(f)
+		or
+			IB5?Flit(f)
+		or
+			IT1?Flit(f)
+		or
+			IT2?Flit(f)
+		or
+			IT3?Flit(f)
+		or
+			IT4?Flit(f)
+		or
+			IT5?Flit(f)
+		les;
+
+		delay(ProcessingTime);
+
+		// busDegree := 5;
+		// nodeLevel := 1;
+		busIndex1 := 1;
+		busIndex2 := 2;
+		busIndex3 := 3;
+		busIndex4 := 4;
+		busIndex5 := 5;
+
+		childTerminalBase := -1+NodeY*5-5;    // (NodeY-1-(1/busDegree))*busDegree^nodeLevel;
+		childIndexInterval := 1; //busDegree^(nodeLevel-1);
+		dest := f getDestination();
+		i := RoutingDistribution sample();
+		// Check if any downward busses has access to the destination
+		if (dest < (childTerminalBase + busIndex1*childIndexInterval)) | (dest > (childTerminalBase - 1 + (busIndex5+1)*childIndexInterval)) then
+			// If not then send it upwards
+			if i==1 then
+				OT1!Flit(f)
+			else if i==2 then
+				OT2!Flit(f)
+			else if i==3 then
+				OT3!Flit(f)
+			else if i==4 then
+				OT4!Flit(f)
+			else if i==5 then
+				OT5!Flit(f)
+			fi fi fi fi fi
+		// If it does, then check which bus contains the destinations
+		else if dest == (childTerminalBase + busIndex1*childIndexInterval) then
+			OB1!Flit(f)
+		else if dest == (childTerminalBase + busIndex2*childIndexInterval) then
+			OB2!Flit(f)
+		else if dest == (childTerminalBase + busIndex3*childIndexInterval) then
+			OB3!Flit(f)
+		else if dest == (childTerminalBase + busIndex4*childIndexInterval) then
+			OB4!Flit(f)
+		else if dest == (childTerminalBase + busIndex5*childIndexInterval) then
+			OB5!Flit(f)
+		fi fi fi fi fi fi;
+
+		TransferFlit()()
+

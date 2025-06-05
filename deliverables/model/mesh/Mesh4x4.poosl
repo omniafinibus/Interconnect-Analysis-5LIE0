@@ -1,0 +1,159 @@
+import "Router.poosl"
+import "Mesh2x2.poosl"
+
+cluster class Mesh4x4 (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+ports
+	// Node input ports 
+	In1, In2, In3, In4, In5, In6, In7, In8, In9, In10, In11, In12,
+	IXL1, IXL5, IXL9, IXL13, IXR4, IXR8, IXR12, IXR16,
+	IYT1, IYT2, IYT3, IYT4, IYB13, IYB14, IYB15, IYB16,
+	
+	// Node output ports
+	Out1, Out2, Out3, Out4, Out5, Out6, Out7, Out8, Out9, Out10, Out11, Out12,
+	OXL1, OXL5, OXL9, OXL13, OXR4, OXR8, OXR12, OXR16,
+	OYT1, OYT2, OYT3, OYT4, OYB13, OYB14, OYB15, OYB16,
+	 
+instances
+	FB1E1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB1E2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB1S1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB1S2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB2W1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB2W2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB2S1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB2S2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB3N1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB3N2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB3E1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB3E2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB4N1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB4N2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB4W1: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	FB4W2: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+
+	Block1: Mesh2x2(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	Block2: Mesh2x2(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	Block3: Mesh2x2(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	Block4: Mesh2x2(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+
+channels
+	// Input 
+	{In1, Block1.In1}
+	{In2, Block1.In2}
+	{In5, Block1.In3}
+
+	{In3, Block2.In1}
+	{In4, Block2.In2}
+	{In6, Block2.In4}
+
+	{In7, Block3.In1}
+	{In9, Block3.In3}
+	{In10, Block3.In4}
+
+	{In8, Block4.In2}
+	{In11, Block4.In3}
+	{In12, Block4.In4}
+
+	// Output
+	{Block1.Out1, Out1}
+	{Block1.Out2, Out2}
+	{Block1.Out3, Out5}
+
+	{Block2.Out1, Out3}
+	{Block2.Out2, Out4}
+	{Block2.Out4, Out6}
+
+	{Block3.Out1, Out7}
+	{Block3.Out3, Out9}
+	{Block3.Out4, Out10}
+
+	{Block4.Out2, Out8}
+	{Block4.Out3, Out11}
+	{Block4.Out4, Out12}
+
+
+	// Connection between block 1 and 2
+	{Block1.OXR2, FB1E1.In}
+	{Block1.OXR4, FB1E2.In}
+	{FB1E1.Out, Block2.IXL1}
+	{FB1E2.Out, Block2.IXL3}
+
+	{Block2.OXL1, FB2W1.In}
+	{Block2.OXL3, FB2W2.In}
+	{FB2W1.Out, Block1.IXR2}
+	{FB2W2.Out, Block1.IXR4}
+
+	// Connection between block 3 and 4
+	{Block3.OXR2, FB3E1.In}
+	{Block3.OXR4, FB3E2.In}
+	{FB3E1.Out, Block4.IXL1}
+	{FB3E2.Out, Block4.IXL3}
+
+	{Block4.OXL1, FB4W1.In}
+	{Block4.OXL3, FB4W2.In}
+	{FB4W1.Out, Block3.IXR2}
+	{FB4W2.Out, Block3.IXR4}
+
+	// Connection between block 1 and 3
+	{Block1.OYB3, FB1S1.In}
+	{Block1.OYB4, FB1S2.In}
+	{FB1S1.Out, Block3.IYT1}
+	{FB1S2.Out, Block3.IYT2}
+
+	{Block3.OYT1, FB3N1.In}
+	{Block3.OYT2, FB3N2.In}
+	{FB3N1.Out, Block1.IYB3}
+	{FB3N2.Out, Block1.IYB4}
+	
+	// Connection between block 2 and 4
+	{Block2.OYB3, FB2S1.In}
+	{Block2.OYB4, FB2S2.In}
+	{FB2S1.Out, Block4.IYT1}
+	{FB2S2.Out, Block4.IYT2}
+
+	{Block4.OYT1, FB4N1.In}
+	{Block4.OYT2, FB4N2.In}
+	{FB4N1.Out, Block2.IYB3}
+	{FB4N2.Out, Block2.IYB4}
+
+	// Remaing router ports
+	// Block1
+	{IXL1, Block1.IXL1}
+	{IXL5, Block1.IXL3}
+	{IYT1, Block1.IYT1}
+	{IYT2, Block1.IYT2}
+	{Block1.OXL1, OXL1}
+	{Block1.OXL3, OXL5}
+	{Block1.OYT1, OYT1}
+	{Block1.OYT2, OYT2}
+	
+	// Block 2
+	{IXR4, Block2.IXR2}
+	{IXR8, Block2.IXR4}
+	{IYT3, Block2.IYT1}
+	{IYT4, Block2.IYT2}
+	{Block2.OXR2, OXR4}
+	{Block2.OXR4, OXR8}
+	{Block2.OYT1, OYT3}
+	{Block2.OYT2, OYT4}
+
+	// Block 3
+	{IXL9,  Block3.IXL1}
+	{IXL13, Block3.IXL3}
+	{IYB13, Block3.IYB3}
+	{IYB14, Block3.IYB4}
+	{Block3.OXL1, OXL9}
+	{Block3.OXL3, OXL13}
+	{Block3.OYB3, OYB13}
+	{Block3.OYB4, OYB14}
+
+	// Block 4
+	{IXR12, Block4.IXR2}
+	{IXR16, Block4.IXR4}
+	{IYB15, Block4.IYB3}
+	{IYB16, Block4.IYB4}
+	{Block4.OXR2, OXR12}
+	{Block4.OXR4, OXR16}
+	{Block4.OYB3, OYB15}
+	{Block4.OYB4, OYB16}
+	

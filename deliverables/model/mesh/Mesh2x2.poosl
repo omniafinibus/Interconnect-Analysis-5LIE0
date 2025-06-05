@@ -1,0 +1,89 @@
+import "Router.poosl"
+
+cluster class Mesh2x2 (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+ports
+	In1, In2, In3, In4, // Node input ports 
+	IXL1, IXR2, IXL3, IXR4,
+	IYT1, IYT2, IYB3, IYB4,
+	
+	Out1, Out2, Out3, Out4, // Node output ports
+	OXL1, OXR2, OXL3, OXR4,
+	OYT1, OYT2, OYB3, OYB4,
+	 
+instances
+	F12: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F13: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F21: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F24: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F31: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F34: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F42: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F43: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	
+	// R1: RouterXY(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	// R2: RouterXY(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	// R3: RouterXY(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	// R4: RouterXY(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+
+	R1: RouterOdd(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	R2: RouterEven(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	R3: RouterOdd(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	R4: RouterEven(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+
+channels
+	// Input from nodes
+	{In1, R1.In} 
+	{In2, R2.In} 
+	{In3, R3.In} 
+	{In4, R4.In} 
+	
+	// Output from routers
+	{R1.Out, Out1} 
+	{R2.Out, Out2} 
+	{R3.Out, Out3} 
+	{R4.Out, Out4}
+	
+	// Routers 1 - 2
+	{R1.OXR, F12.In} 
+	{F12.Out, R2.IXL} 
+	{R2.OXL, F21.In } 
+	{F21.Out, R1.IXR}
+	 
+	// Routers 3 - 4
+	{R3.OXR, F34.In} 
+	{F34.Out, R4.IXL} 
+	{R4.OXL, F43.In} 
+	{F43.Out, R3.IXR}
+	 
+	// Routers 1 - 3
+	{R3.OYT, F31.In} 
+	{F31.Out, R1.IYB} 
+	{R1.OYB, F13.In} 
+	{F13.Out, R3.IYT}
+	
+	// Routers 2 - 4
+	{R4.OYT, F42.In}
+	{F42.Out, R2.IYB} 
+	{R2.OYB, F24.In} 
+	{F24.Out, R4.IYT}
+
+	// Give access to unused router inputs	 
+	{IXL1, R1.IXL}
+	{R1.OXL, OXL1}
+	{IYT1, R1.IYT}
+	{R1.OYT, OYT1}
+
+	{IXR2, R2.IXR}
+	{R2.OXR, OXR2}
+	{IYT2, R2.IYT}
+	{R2.OYT, OYT2}
+
+	{IXL3, R3.IXL}
+	{R3.OXL, OXL3}
+	{IYB3, R3.IYB}
+	{R3.OYB, OYB3}
+
+	{IXR4, R4.IXR}
+	{R4.OXR, OXR4}
+	{IYB4, R4.IYB}
+	{R4.OYB, OYB4}

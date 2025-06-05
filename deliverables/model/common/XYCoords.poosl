@@ -1,0 +1,28 @@
+data class XYCoords extends Object
+variables
+	X: Integer, Y: Integer
+methods
+	getX() : Integer
+		return(X)
+		
+	setX(A: Integer) : XYCoords
+		X := A;
+		return self
+	
+	getY() : Integer
+		return(Y)
+		
+	setY(B: Integer) : XYCoords
+		Y := B;
+		return self
+		
+	init(A, B: Integer) : XYCoords
+		X := A;
+		Y := B;
+		return self
+		
+	minus(C: XYCoords) : XYCoords
+		return(new(XYCoords) init(X - (C getX), Y - (C getY)))
+	
+	printString() : String
+		return("(" + X printString + ", " + Y printString + ")")

@@ -1,0 +1,19 @@
+import "../libraries/Matrix.poosl"
+import "XYCoords.poosl"
+
+data class NodeMapXY extends Object
+variables
+	numXNodes: Integer
+	numYNodes: Integer
+methods
+	getCoordinatesOf(NodeID: Integer) : XYCoords
+		NodeID := NodeID - 1;
+		return new(XYCoords) init(NodeID modulo(numXNodes), NodeID / numXNodes)
+		
+	init(NumberOfXNodes, NumberOfYNodes: Integer) : NodeMapXY
+		numXNodes := NumberOfXNodes;
+		numYNodes := NumberOfYNodes;
+		return self
+		
+	printString : String
+		return "num x nodes: " concat(numXNodes printString) cr concat("num y nodes: ") concat(numYNodes printString)

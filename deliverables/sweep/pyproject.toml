@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "5lie0_sweep"
+version = "1.0.0"
+description = ""
+authors = ["Joan Marcè i Igual <J.Marce.i.Igual@tue.nl>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.24.1"
+pandas = "^1.5.2"
+matplotlib = "^3.6.3"
+tqdm = "^4.64.1"
+ipywidgets = "7.*"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

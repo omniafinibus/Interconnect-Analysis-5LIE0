@@ -1,0 +1,341 @@
+import "NetworkInterface.poosl"
+import "Arbiter.poosl"
+
+cluster class BusBasedNetwork64 (ArbiterProcessingTime: Real, BusTransferDelay: Real, NIBufferCapacity: Integer)
+
+ports
+	Node1, Node2, Node3, Node4, Node5, Node6, Node7, Node8, Node9, Node10, Node11, Node12, Node13, Node14, Node15, Node16, Node17, Node18, Node19, Node20, Node21, Node22, Node23, Node24, Node25, Node26, Node27, Node28, Node29, Node30, Node31, Node32, Node33, Node34, Node35, Node36, Node37, Node38, Node39, Node40, Node41, Node42, Node43, Node44, Node45, Node46, Node47, Node48, Node49, Node50, Node51, Node52, Node53, Node54, Node55, Node56, Node57, Node58, Node59, Node60, Node61, Node62, Node63, Node64
+instances
+	Arbiter: Arbiter(NumberOfNIs := 64, ProcessingTime := ArbiterProcessingTime)
+	NI1:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 1, TransferDelay := BusTransferDelay)
+	NI2:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 2, TransferDelay := BusTransferDelay)
+	NI3:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 3, TransferDelay := BusTransferDelay)
+	NI4:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 4, TransferDelay := BusTransferDelay)
+	NI5:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 5, TransferDelay := BusTransferDelay)
+	NI6:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 6, TransferDelay := BusTransferDelay)
+	NI7:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 7, TransferDelay := BusTransferDelay)
+	NI8:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 8, TransferDelay := BusTransferDelay)
+	NI9:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 9, TransferDelay := BusTransferDelay)
+	NI10:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 10, TransferDelay := BusTransferDelay)
+	NI11:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 11, TransferDelay := BusTransferDelay)
+	NI12:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 12, TransferDelay := BusTransferDelay)
+	NI13:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 13, TransferDelay := BusTransferDelay)
+	NI14:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 14, TransferDelay := BusTransferDelay)
+	NI15:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 15, TransferDelay := BusTransferDelay)
+	NI16:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 16, TransferDelay := BusTransferDelay)
+	NI17:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 17, TransferDelay := BusTransferDelay)
+	NI18:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 18, TransferDelay := BusTransferDelay)
+	NI19:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 19, TransferDelay := BusTransferDelay)
+	NI20:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 20, TransferDelay := BusTransferDelay)
+	NI21:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 21, TransferDelay := BusTransferDelay)
+	NI22:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 22, TransferDelay := BusTransferDelay)
+	NI23:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 23, TransferDelay := BusTransferDelay)
+	NI24:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 24, TransferDelay := BusTransferDelay)
+	NI25:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 25, TransferDelay := BusTransferDelay)
+	NI26:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 26, TransferDelay := BusTransferDelay)
+	NI27:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 27, TransferDelay := BusTransferDelay)
+	NI28:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 28, TransferDelay := BusTransferDelay)
+	NI29:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 29, TransferDelay := BusTransferDelay)
+	NI30:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 30, TransferDelay := BusTransferDelay)
+	NI31:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 31, TransferDelay := BusTransferDelay)
+	NI32:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 32, TransferDelay := BusTransferDelay)
+	NI33:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 33, TransferDelay := BusTransferDelay)
+	NI34:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 34, TransferDelay := BusTransferDelay)
+	NI35:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 35, TransferDelay := BusTransferDelay)
+	NI36:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 36, TransferDelay := BusTransferDelay)
+	NI37:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 37, TransferDelay := BusTransferDelay)
+	NI38:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 38, TransferDelay := BusTransferDelay)
+	NI39:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 39, TransferDelay := BusTransferDelay)
+	NI40:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 40, TransferDelay := BusTransferDelay)
+	NI41:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 41, TransferDelay := BusTransferDelay)
+	NI42:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 42, TransferDelay := BusTransferDelay)
+	NI43:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 43, TransferDelay := BusTransferDelay)
+	NI44:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 44, TransferDelay := BusTransferDelay)
+	NI45:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 45, TransferDelay := BusTransferDelay)
+	NI46:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 46, TransferDelay := BusTransferDelay)
+	NI47:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 47, TransferDelay := BusTransferDelay)
+	NI48:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 48, TransferDelay := BusTransferDelay)
+	NI49:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 49, TransferDelay := BusTransferDelay)
+	NI50:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 50, TransferDelay := BusTransferDelay)
+	NI51:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 51, TransferDelay := BusTransferDelay)
+	NI52:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 52, TransferDelay := BusTransferDelay)
+	NI53:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 53, TransferDelay := BusTransferDelay)
+	NI54:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 54, TransferDelay := BusTransferDelay)
+	NI55:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 55, TransferDelay := BusTransferDelay)
+	NI56:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 56, TransferDelay := BusTransferDelay)
+	NI57:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 57, TransferDelay := BusTransferDelay)
+	NI58:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 58, TransferDelay := BusTransferDelay)
+	NI59:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 59, TransferDelay := BusTransferDelay)
+	NI60:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 60, TransferDelay := BusTransferDelay)
+	NI61:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 61, TransferDelay := BusTransferDelay)
+	NI62:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 62, TransferDelay := BusTransferDelay)
+	NI63:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 63, TransferDelay := BusTransferDelay)
+	NI64:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 64, TransferDelay := BusTransferDelay)
+
+channels
+	{ Arbiter.NI, NI1.Arbiter, NI2.Arbiter, NI3.Arbiter, NI4.Arbiter, NI5.Arbiter, NI6.Arbiter, NI7.Arbiter, NI8.Arbiter, NI9.Arbiter, NI10.Arbiter, NI11.Arbiter, NI12.Arbiter, NI13.Arbiter, NI14.Arbiter, NI15.Arbiter, NI16.Arbiter, NI17.Arbiter, NI18.Arbiter, NI19.Arbiter, NI20.Arbiter, NI21.Arbiter, NI22.Arbiter, NI23.Arbiter, NI24.Arbiter, NI25.Arbiter, NI26.Arbiter, NI27.Arbiter, NI28.Arbiter, NI29.Arbiter, NI30.Arbiter, NI31.Arbiter, NI32.Arbiter, NI33.Arbiter, NI34.Arbiter, NI35.Arbiter, NI36.Arbiter, NI37.Arbiter, NI38.Arbiter, NI39.Arbiter, NI40.Arbiter, NI41.Arbiter, NI42.Arbiter, NI43.Arbiter, NI44.Arbiter, NI45.Arbiter, NI46.Arbiter, NI47.Arbiter, NI48.Arbiter, NI49.Arbiter, NI50.Arbiter, NI51.Arbiter, NI52.Arbiter, NI53.Arbiter, NI54.Arbiter, NI55.Arbiter, NI56.Arbiter, NI57.Arbiter, NI58.Arbiter, NI59.Arbiter, NI60.Arbiter, NI61.Arbiter, NI62.Arbiter, NI63.Arbiter, NI64.Arbiter} 
+
+	{ NI1.Bus, NI2.Bus, NI3.Bus, NI4.Bus, NI5.Bus, NI6.Bus, NI7.Bus, NI8.Bus, NI9.Bus, NI10.Bus, NI11.Bus, NI12.Bus, NI13.Bus, NI14.Bus, NI15.Bus, NI16.Bus, NI17.Bus, NI18.Bus, NI19.Bus, NI20.Bus, NI21.Bus, NI22.Bus, NI23.Bus, NI24.Bus, NI25.Bus, NI26.Bus, NI27.Bus, NI28.Bus, NI29.Bus, NI30.Bus, NI31.Bus, NI32.Bus, NI33.Bus, NI34.Bus, NI35.Bus, NI36.Bus, NI37.Bus, NI38.Bus, NI39.Bus, NI40.Bus, NI41.Bus, NI42.Bus, NI43.Bus, NI44.Bus, NI45.Bus, NI46.Bus, NI47.Bus, NI48.Bus, NI49.Bus, NI50.Bus, NI51.Bus, NI52.Bus, NI53.Bus, NI54.Bus, NI55.Bus, NI56.Bus, NI57.Bus, NI58.Bus, NI59.Bus, NI60.Bus, NI61.Bus, NI62.Bus, NI63.Bus, NI64.Bus } 
+
+	{ Node1, NI1.Node }
+	{ Node2, NI2.Node }
+	{ Node3, NI3.Node }
+	{ Node4, NI4.Node }
+	{ Node5, NI5.Node }
+	{ Node6, NI6.Node }
+	{ Node7, NI7.Node }
+	{ Node8, NI8.Node }
+	{ Node9, NI9.Node }
+	{ Node10, NI10.Node }
+	{ Node11, NI11.Node }
+	{ Node12, NI12.Node }
+	{ Node13, NI13.Node }
+	{ Node14, NI14.Node }
+	{ Node15, NI15.Node }
+	{ Node16, NI16.Node }
+	{ Node17, NI17.Node }
+	{ Node18, NI18.Node }
+	{ Node19, NI19.Node }
+	{ Node20, NI20.Node }
+	{ Node21, NI21.Node }
+	{ Node22, NI22.Node }
+	{ Node23, NI23.Node }
+	{ Node24, NI24.Node }
+	{ Node25, NI25.Node }
+	{ Node26, NI26.Node }
+	{ Node27, NI27.Node }
+	{ Node28, NI28.Node }
+	{ Node29, NI29.Node }
+	{ Node30, NI30.Node }
+	{ Node31, NI31.Node }
+	{ Node32, NI32.Node }
+	{ Node33, NI33.Node }
+	{ Node34, NI34.Node }
+	{ Node35, NI35.Node }
+	{ Node36, NI36.Node }
+	{ Node37, NI37.Node }
+	{ Node38, NI38.Node }
+	{ Node39, NI39.Node }
+	{ Node40, NI40.Node }
+	{ Node41, NI41.Node }
+	{ Node42, NI42.Node }
+	{ Node43, NI43.Node }
+	{ Node44, NI44.Node }
+	{ Node45, NI45.Node }
+	{ Node46, NI46.Node }
+	{ Node47, NI47.Node }
+	{ Node48, NI48.Node }
+	{ Node49, NI49.Node }
+	{ Node50, NI50.Node }
+	{ Node51, NI51.Node }
+	{ Node52, NI52.Node }
+	{ Node53, NI53.Node }
+	{ Node54, NI54.Node }
+	{ Node55, NI55.Node }
+	{ Node56, NI56.Node }
+	{ Node57, NI57.Node }
+	{ Node58, NI58.Node }
+	{ Node59, NI59.Node }
+	{ Node60, NI60.Node }
+	{ Node61, NI61.Node }
+	{ Node62, NI62.Node }
+	{ Node63, NI63.Node }
+	{ Node64, NI64.Node }
+
+cluster class BusBasedNetwork32 (ArbiterProcessingTime: Real, BusTransferDelay: Real, NIBufferCapacity: Integer)
+
+ports
+	Node1, Node2, Node3, Node4, Node5, Node6, Node7, Node8, Node9, Node10, Node11, Node12, Node13, Node14, Node15, Node16, Node17, Node18, Node19, Node20, Node21, Node22, Node23, Node24, Node25, Node26, Node27, Node28, Node29, Node30, Node31, Node32
+instances
+	Arbiter: Arbiter(NumberOfNIs := 32, ProcessingTime := ArbiterProcessingTime)
+	NI1:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 1, TransferDelay := BusTransferDelay)
+	NI2:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 2, TransferDelay := BusTransferDelay)
+	NI3:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 3, TransferDelay := BusTransferDelay)
+	NI4:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 4, TransferDelay := BusTransferDelay)
+	NI5:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 5, TransferDelay := BusTransferDelay)
+	NI6:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 6, TransferDelay := BusTransferDelay)
+	NI7:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 7, TransferDelay := BusTransferDelay)
+	NI8:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 8, TransferDelay := BusTransferDelay)
+	NI9:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 9, TransferDelay := BusTransferDelay)
+	NI10:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 10, TransferDelay := BusTransferDelay)
+	NI11:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 11, TransferDelay := BusTransferDelay)
+	NI12:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 12, TransferDelay := BusTransferDelay)
+	NI13:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 13, TransferDelay := BusTransferDelay)
+	NI14:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 14, TransferDelay := BusTransferDelay)
+	NI15:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 15, TransferDelay := BusTransferDelay)
+	NI16:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 16, TransferDelay := BusTransferDelay)
+	NI17:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 17, TransferDelay := BusTransferDelay)
+	NI18:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 18, TransferDelay := BusTransferDelay)
+	NI19:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 19, TransferDelay := BusTransferDelay)
+	NI20:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 20, TransferDelay := BusTransferDelay)
+	NI21:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 21, TransferDelay := BusTransferDelay)
+	NI22:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 22, TransferDelay := BusTransferDelay)
+	NI23:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 23, TransferDelay := BusTransferDelay)
+	NI24:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 24, TransferDelay := BusTransferDelay)
+	NI25:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 25, TransferDelay := BusTransferDelay)
+	NI26:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 26, TransferDelay := BusTransferDelay)
+	NI27:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 27, TransferDelay := BusTransferDelay)
+	NI28:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 28, TransferDelay := BusTransferDelay)
+	NI29:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 29, TransferDelay := BusTransferDelay)
+	NI30:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 30, TransferDelay := BusTransferDelay)
+	NI31:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 31, TransferDelay := BusTransferDelay)
+	NI32:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 32, TransferDelay := BusTransferDelay)
+
+channels
+	{ Arbiter.NI, NI1.Arbiter, NI2.Arbiter, NI3.Arbiter, NI4.Arbiter, NI5.Arbiter, NI6.Arbiter, NI7.Arbiter, NI8.Arbiter, NI9.Arbiter, NI10.Arbiter, NI11.Arbiter, NI12.Arbiter, NI13.Arbiter, NI14.Arbiter, NI15.Arbiter, NI16.Arbiter, NI17.Arbiter, NI18.Arbiter, NI19.Arbiter, NI20.Arbiter, NI21.Arbiter, NI22.Arbiter, NI23.Arbiter, NI24.Arbiter, NI25.Arbiter, NI26.Arbiter, NI27.Arbiter, NI28.Arbiter, NI29.Arbiter, NI30.Arbiter, NI31.Arbiter, NI32.Arbiter } 
+	
+	{ NI1.Bus, NI2.Bus, NI3.Bus, NI4.Bus, NI5.Bus, NI6.Bus, NI7.Bus, NI8.Bus, NI9.Bus, NI10.Bus, NI11.Bus, NI12.Bus, NI13.Bus, NI14.Bus, NI15.Bus, NI16.Bus, NI17.Bus, NI18.Bus, NI19.Bus, NI20.Bus, NI21.Bus, NI22.Bus, NI23.Bus, NI24.Bus, NI25.Bus, NI26.Bus, NI27.Bus, NI28.Bus, NI29.Bus, NI30.Bus, NI31.Bus, NI32.Bus } 
+
+	{ Node1, NI1.Node }
+	{ Node2, NI2.Node }
+	{ Node3, NI3.Node }
+	{ Node4, NI4.Node }
+	{ Node5, NI5.Node }
+	{ Node6, NI6.Node }
+	{ Node7, NI7.Node }
+	{ Node8, NI8.Node }
+	{ Node9, NI9.Node }
+	{ Node10, NI10.Node }
+	{ Node11, NI11.Node }
+	{ Node12, NI12.Node }
+	{ Node13, NI13.Node }
+	{ Node14, NI14.Node }
+	{ Node15, NI15.Node }
+	{ Node16, NI16.Node }
+	{ Node17, NI17.Node }
+	{ Node18, NI18.Node }
+	{ Node19, NI19.Node }
+	{ Node20, NI20.Node }
+	{ Node21, NI21.Node }
+	{ Node22, NI22.Node }
+	{ Node23, NI23.Node }
+	{ Node24, NI24.Node }
+	{ Node25, NI25.Node }
+	{ Node26, NI26.Node }
+	{ Node27, NI27.Node }
+	{ Node28, NI28.Node }
+	{ Node29, NI29.Node }
+	{ Node30, NI30.Node }
+	{ Node31, NI31.Node }
+	{ Node32, NI32.Node }
+
+cluster class BusBasedNetwork16 (ArbiterProcessingTime: Real, BusTransferDelay: Real, NIBufferCapacity: Integer)
+
+ports
+	Node1, Node2, Node3, Node4, Node5, Node6, Node7, Node8, Node9, Node10, Node11, Node12, Node13, Node14, Node15, Node16
+instances
+	Arbiter: Arbiter(NumberOfNIs := 16, ProcessingTime := ArbiterProcessingTime)
+	NI1:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 1, TransferDelay := BusTransferDelay)
+	NI2:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 2, TransferDelay := BusTransferDelay)
+	NI3:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 3, TransferDelay := BusTransferDelay)
+	NI4:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 4, TransferDelay := BusTransferDelay)
+	NI5:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 5, TransferDelay := BusTransferDelay)
+	NI6:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 6, TransferDelay := BusTransferDelay)
+	NI7:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 7, TransferDelay := BusTransferDelay)
+	NI8:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 8, TransferDelay := BusTransferDelay)
+	NI9:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 9, TransferDelay := BusTransferDelay)
+	NI10:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 10, TransferDelay := BusTransferDelay)
+	NI11:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 11, TransferDelay := BusTransferDelay)
+	NI12:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 12, TransferDelay := BusTransferDelay)
+	NI13:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 13, TransferDelay := BusTransferDelay)
+	NI14:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 14, TransferDelay := BusTransferDelay)
+	NI15:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 15, TransferDelay := BusTransferDelay)
+	NI16:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 16, TransferDelay := BusTransferDelay)
+
+channels
+	{ Arbiter.NI, NI1.Arbiter, NI2.Arbiter, NI3.Arbiter, NI4.Arbiter, NI5.Arbiter, NI6.Arbiter, NI7.Arbiter, NI8.Arbiter, NI9.Arbiter, NI10.Arbiter, NI11.Arbiter, NI12.Arbiter, NI13.Arbiter, NI14.Arbiter, NI15.Arbiter, NI16.Arbiter } 
+	
+	{ NI1.Bus, NI2.Bus, NI3.Bus, NI4.Bus, NI5.Bus, NI6.Bus, NI7.Bus, NI8.Bus, NI9.Bus, NI10.Bus, NI11.Bus, NI12.Bus, NI13.Bus, NI14.Bus, NI15.Bus, NI16.Bus } 
+
+	{ Node1, NI1.Node }
+	{ Node2, NI2.Node }
+	{ Node3, NI3.Node }
+	{ Node4, NI4.Node }
+	{ Node5, NI5.Node }
+	{ Node6, NI6.Node }
+	{ Node7, NI7.Node }
+	{ Node8, NI8.Node }
+	{ Node9, NI9.Node }
+	{ Node10, NI10.Node }
+	{ Node11, NI11.Node }
+	{ Node12, NI12.Node }
+	{ Node13, NI13.Node }
+	{ Node14, NI14.Node }
+	{ Node15, NI15.Node }
+	{ Node16, NI16.Node }
+
+cluster class BusBasedNetwork8 (ArbiterProcessingTime: Real, BusTransferDelay: Real, NIBufferCapacity: Integer)
+
+ports
+	Node1, Node2, Node3, Node4, Node5, Node6, Node7, Node8
+instances
+	Arbiter: Arbiter(NumberOfNIs := 8, ProcessingTime := ArbiterProcessingTime)
+	NI1:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 1, TransferDelay := BusTransferDelay)
+	NI2:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 2, TransferDelay := BusTransferDelay)
+	NI3:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 3, TransferDelay := BusTransferDelay)
+	NI4:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 4, TransferDelay := BusTransferDelay)
+	NI5:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 5, TransferDelay := BusTransferDelay)
+	NI6:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 6, TransferDelay := BusTransferDelay)
+	NI7:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 7, TransferDelay := BusTransferDelay)
+	NI8:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 8, TransferDelay := BusTransferDelay)
+
+channels
+	{ Arbiter.NI, NI1.Arbiter, NI2.Arbiter, NI3.Arbiter, NI4.Arbiter, NI5.Arbiter, NI6.Arbiter, NI7.Arbiter, NI8.Arbiter } 
+	
+	{ NI1.Bus, NI2.Bus, NI3.Bus, NI4.Bus, NI5.Bus, NI6.Bus, NI7.Bus, NI8.Bus } 
+
+	{ Node1, NI1.Node }
+	{ Node2, NI2.Node }
+	{ Node3, NI3.Node }
+	{ Node4, NI4.Node }
+	{ Node5, NI5.Node }
+	{ Node6, NI6.Node }
+	{ Node7, NI7.Node }
+	{ Node8, NI8.Node }
+
+cluster class BusBasedNetwork4 (ArbiterProcessingTime: Real, BusTransferDelay: Real, NIBufferCapacity: Integer)
+// a network with a bus, an arbiter and four network interfaces
+// Parameters:
+//	ArbiterProcessingTime:	time the arbiter takes to resolve arbitration
+//	BusTransferDelay:		time the bus takes for a transfer
+//	NIBufferCapacity:		buffer capacity of the input buffers from the nodes of the network interfaces
+//	NumberOfNodes:			the number of nodes connected to the network (max. 4 for this cluster class)
+
+ports
+	Node1, Node2, Node3, Node4
+instances
+	Arbiter: Arbiter(NumberOfNIs := 4, ProcessingTime := ArbiterProcessingTime)
+	NI1: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 1, TransferDelay := BusTransferDelay)
+	NI2: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 2, TransferDelay := BusTransferDelay)
+	NI3: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 3, TransferDelay := BusTransferDelay)
+	NI4: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 4, TransferDelay := BusTransferDelay)
+
+channels
+	{ Arbiter.NI, NI1.Arbiter, NI2.Arbiter, NI3.Arbiter, NI4.Arbiter } 
+	{ NI1.Bus, NI2.Bus, NI3.Bus, NI4.Bus } 
+	{ Node1, NI1.Node } 
+	{ Node2, NI2.Node } 
+	{ Node3, NI3.Node } 
+	{ Node4, NI4.Node }
+	
+	
+cluster class BusBasedNetwork2 (ArbiterProcessingTime: Real, BusTransferDelay: Real, NIBufferCapacity: Integer)
+// a network with a bus, an arbiter and four network interfaces
+// Parameters:
+//	ArbiterProcessingTime:	time the arbiter takes to resolve arbitration
+//	BusTransferDelay:		time the bus takes for a transfer
+//	NIBufferCapacity:		buffer capacity of the input buffers from the nodes of the network interfaces
+//	NumberOfNodes:			the number of nodes connected to the network (max. 4 for this cluster class)
+
+ports
+	Node1, Node2
+instances
+	Arbiter: Arbiter(NumberOfNIs := 2, ProcessingTime := ArbiterProcessingTime)
+	NI1: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 1, TransferDelay := BusTransferDelay)
+	NI2: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 2, TransferDelay := BusTransferDelay)
+
+channels
+	{ Arbiter.NI, NI1.Arbiter, NI2.Arbiter } 
+	{ NI1.Bus, NI2.Bus } 
+	{ Node1, NI1.Node } 
+	{ Node2, NI2.Node } 

@@ -1,0 +1,62 @@
+import "routers/degree2/RouterLevel1.poosl"
+import "routers/degree2/RouterLevel2.poosl"
+
+cluster class FatTree2LayerDegree2 (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+
+ports
+	// Node input ports 
+	In1, In2, In3, In4, 
+
+	// Node output ports
+	Out1, Out2, Out3, Out4, 
+
+
+instances
+	F1UY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	RL1Y1: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 1)
+	RL1Y2: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 2)
+	RootRouter: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 1)
+
+channels
+	// In  -> RL1
+	{In1,  RL1Y1.IB1}
+	{In2,  RL1Y1.IB2}
+	{In3,  RL1Y2.IB1}
+	{In4,  RL1Y2.IB2}
+
+	// RL1 -> F1U
+	{RL1Y1.OT1,  F1UY1.In}
+	{RL1Y1.OT2,  F1UY2.In}
+	{RL1Y2.OT1,  F1UY3.In}
+	{RL1Y2.OT2,  F1UY4.In}
+
+	// F1U -> RL2
+	{F1UY1.Out,  RootRouter.IB1}
+	{F1UY2.Out,  RootRouter.IB2}
+	{F1UY3.Out,  RootRouter.IB3}
+	{F1UY4.Out,  RootRouter.IB4}
+	
+	// F2D <- RL2
+	{RootRouter.OB1, F2DY1.In}
+	{RootRouter.OB2, F2DY2.In}
+	{RootRouter.OB3, F2DY3.In}
+	{RootRouter.OB4, F2DY4.In}
+
+	// RL1 <- F2D
+	{F2DY1.Out,  RL1Y1.IT1}
+	{F2DY2.Out,  RL1Y1.IT2}
+	{F2DY3.Out,  RL1Y2.IT1}
+	{F2DY4.Out,  RL1Y2.IT2}
+
+	// Out <- RL1
+	{RL1Y1.OB1, Out1}
+	{RL1Y1.OB2, Out2}
+	{RL1Y2.OB1, Out3}
+	{RL1Y2.OB2, Out4}

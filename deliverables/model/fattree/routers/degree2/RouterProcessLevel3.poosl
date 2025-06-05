@@ -1,0 +1,155 @@
+import "../../../common/Flit.poosl"
+import "../../../libraries/distributions.poosl"
+
+process class RandomUpStreamRouterDegree2Level3(ProcessingTime : Real, NodeY: Integer)
+ports
+	IT1, IT2, IT3, IT4, IT5,
+	IT6, IT7, IT8,
+	IB1, IB2, IB3, IB4, IB5,
+	IB6, IB7, IB8,
+	OT1, OT2, OT3, OT4, OT5,
+	OT6, OT7, OT8,
+	OB1, OB2, OB3, OB4, OB5,
+	OB6, OB7, OB8
+
+messages
+	IT1?Flit(Flit)
+	IT2?Flit(Flit)
+	IT3?Flit(Flit)
+	IT4?Flit(Flit)
+	IT5?Flit(Flit)
+	IT6?Flit(Flit)
+	IT7?Flit(Flit)
+	IT8?Flit(Flit)
+	IB1?Flit(Flit)
+	IB2?Flit(Flit)
+	IB3?Flit(Flit)
+	IB4?Flit(Flit)
+	IB5?Flit(Flit)
+	IB6?Flit(Flit)
+	IB7?Flit(Flit)
+	IB8?Flit(Flit)
+	OT1!Flit(Flit)
+	OT2!Flit(Flit)
+	OT3!Flit(Flit)
+	OT4!Flit(Flit)
+	OT5!Flit(Flit)
+	OT6!Flit(Flit)
+	OT7!Flit(Flit)
+	OT8!Flit(Flit)
+	OB1!Flit(Flit)
+	OB2!Flit(Flit)
+	OB3!Flit(Flit)
+	OB4!Flit(Flit)
+	OB5!Flit(Flit)
+	OB6!Flit(Flit)
+	OB7!Flit(Flit)
+	OB8!Flit(Flit)
+	
+variables
+	TopRoutingDistribution: Distribution
+	BottomRoutingDistribution: Distribution
+
+init
+	Initialise()()
+
+methods
+	Initialise()()
+		TopRoutingDistribution := new(DiscreteUniform) withParameters(1, 8);
+		BottomRoutingDistribution := new(DiscreteUniform) withParameters(1, 4);
+		TransferFlit()()
+	TransferFlit()()
+	|f: Flit, iTop: Integer, iBottom: Integer, dest: Integer, childTerminalBase: Integer, childIndexInterval: Integer, busIndex1: Integer, busIndex2: Integer|//, busDegree: Integer, nodeLevel: Integer|
+		sel
+			IB1?Flit(f)
+		or
+			IB2?Flit(f)
+		or
+			IB3?Flit(f)
+		or
+			IB4?Flit(f)
+		or
+			IB5?Flit(f)
+		or
+			IB6?Flit(f)
+		or
+			IB7?Flit(f)
+		or
+			IB8?Flit(f)
+		or
+			IT1?Flit(f)
+		or
+			IT2?Flit(f)
+		or
+			IT3?Flit(f)
+		or
+			IT4?Flit(f)
+		or
+			IT5?Flit(f)
+		or
+			IT6?Flit(f)
+		or
+			IT7?Flit(f)
+		or
+			IT8?Flit(f)
+		les;
+	
+		delay(ProcessingTime);
+	
+		// busDegree := 2;
+		// nodeLevel := 3;
+	
+		busIndex1 := 1;
+		busIndex2 := 2;
+
+		childTerminalBase := -1+NodeY*8-11;//(NodeY-1-(1/busDegree))*busDegree^nodeLevel;
+		childIndexInterval := 4; //busDegree^(nodeLevel-1);
+		
+		dest := f getDestination();
+		iTop := TopRoutingDistribution sample();
+		iBottom := BottomRoutingDistribution sample();
+
+		// Check if any downward busses has access to the destination
+		if (dest < (childTerminalBase + busIndex1*childIndexInterval)) | (dest > (childTerminalBase - 1 + (busIndex2+1)*childIndexInterval)) then
+			// If not then send it upwards
+			if iTop==1 then
+				OT1!Flit(f)
+			else if iTop==2 then
+				OT2!Flit(f)
+			else if iTop==3 then
+				OT3!Flit(f)
+			else if iTop==4 then
+				OT4!Flit(f)
+			else if iTop==5 then
+				OT5!Flit(f)
+			else if iTop==6 then
+				OT6!Flit(f)
+			else if iTop==7 then
+				OT7!Flit(f)
+			else if iTop==8 then
+				OT8!Flit(f)
+			fi fi fi fi fi fi fi fi
+		// If it does, then check which bus contains the destinations
+		else if (dest >= (childTerminalBase + busIndex1*childIndexInterval)) & (dest <= (childTerminalBase - 1 + (busIndex1+1)*childIndexInterval)) then
+			if iBottom==1 then
+				OB1!Flit(f)
+			else if iBottom==2 then
+				OB2!Flit(f)
+			else if iBottom==3 then
+				OB3!Flit(f)
+			else if iBottom==4 then
+				OB4!Flit(f)
+			fi fi fi fi
+		else if (dest >= (childTerminalBase + busIndex2*childIndexInterval)) & (dest <= (childTerminalBase - 1 + (busIndex2+1)*childIndexInterval)) then
+			if iBottom==1 then
+				OB5!Flit(f)
+			else if iBottom==2 then
+				OB6!Flit(f)
+			else if iBottom==3 then
+				OB7!Flit(f)
+			else if iBottom==4 then
+				OB8!Flit(f)
+			fi fi fi fi
+		fi fi fi;
+	
+		TransferFlit()()

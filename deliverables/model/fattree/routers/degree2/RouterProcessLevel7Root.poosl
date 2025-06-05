@@ -1,0 +1,841 @@
+import "../../../common/Flit.poosl"
+import "../../../libraries/distributions.poosl"
+
+process class RandomUpStreamRouterDegree2Level7Root(ProcessingTime : Real, NodeY: Integer)
+
+ports
+	IB1,  IB2,  IB3,  IB4,  IB5,  IB6,  IB7,  IB8,  IB9,  IB10,
+	IB11, IB12, IB13, IB14, IB15, IB16, IB17, IB18, IB19, IB20,
+	IB21, IB22, IB23, IB24, IB25, IB26, IB27, IB28, IB29, IB30,
+	IB31, IB32, IB33, IB34, IB35, IB36, IB37, IB38, IB39, IB40,
+	IB41, IB42, IB43, IB44, IB45, IB46, IB47, IB48, IB49, IB50, 
+	IB51, IB52, IB53, IB54, IB55, IB56, IB57, IB58, IB59, IB60,
+	IB61, IB62, IB63, IB64, IB65, IB66, IB67, IB68, IB69, IB70,
+	IB71, IB72, IB73, IB74, IB75, IB76, IB77, IB78, IB79, IB80,
+	IB81, IB82, IB83, IB84, IB85, IB86, IB87, IB88, IB89, IB90,
+	IB91, IB92, IB93, IB94, IB95, IB96, IB97, IB98, IB99, IB100,
+	IB101,IB102,IB103,IB104,IB105,IB106,IB107,IB108,IB109,IB110,
+	IB111,IB112,IB113,IB114,IB115,IB116,IB117,IB118,IB119,IB120,
+	IB121,IB122,IB123,IB124,IB125,IB126,IB127,IB128,
+	OB1,  OB2,  OB3,  OB4,  OB5,  OB6,  OB7,  OB8,  OB9,  OB10,
+	OB11, OB12, OB13, OB14, OB15, OB16, OB17, OB18, OB19, OB20,
+	OB21, OB22, OB23, OB24, OB25, OB26, OB27, OB28, OB29, OB30,
+	OB31, OB32, OB33, OB34, OB35, OB36, OB37, OB38, OB39, OB40,
+	OB41, OB42, OB43, OB44, OB45, OB46, OB47, OB48, OB49, OB50, 
+	OB51, OB52, OB53, OB54, OB55, OB56, OB57, OB58, OB59, OB60,
+	OB61, OB62, OB63, OB64, OB65, OB66, OB67, OB68, OB69, OB70,
+	OB71, OB72, OB73, OB74, OB75, OB76, OB77, OB78, OB79, OB80,
+	OB81, OB82, OB83, OB84, OB85, OB86, OB87, OB88, OB89, OB90,
+	OB91, OB92, OB93, OB94, OB95, OB96, OB97, OB98, OB99, OB100,
+	OB101,OB102,OB103,OB104,OB105,OB106,OB107,OB108,OB109,OB110,
+	OB111,OB112,OB113,OB114,OB115,OB116,OB117,OB118,OB119,OB120,
+	OB121,OB122,OB123,OB124,OB125,OB126,OB127,OB128
+	
+messages
+	IB1?Flit(Flit)
+	IB2?Flit(Flit)
+	IB3?Flit(Flit)
+	IB4?Flit(Flit)
+	IB5?Flit(Flit)
+	IB6?Flit(Flit)
+	IB7?Flit(Flit)
+	IB8?Flit(Flit)
+	IB9?Flit(Flit)
+	IB10?Flit(Flit)
+	IB11?Flit(Flit)
+	IB12?Flit(Flit)
+	IB13?Flit(Flit)
+	IB14?Flit(Flit)
+	IB15?Flit(Flit)
+	IB16?Flit(Flit)
+	IB17?Flit(Flit)
+	IB18?Flit(Flit)
+	IB19?Flit(Flit)
+	IB20?Flit(Flit)
+	IB21?Flit(Flit)
+	IB22?Flit(Flit)
+	IB23?Flit(Flit)
+	IB24?Flit(Flit)
+	IB25?Flit(Flit)
+	IB26?Flit(Flit)
+	IB27?Flit(Flit)
+	IB28?Flit(Flit)
+	IB29?Flit(Flit)
+	IB30?Flit(Flit)
+	IB31?Flit(Flit)
+	IB32?Flit(Flit)
+	IB33?Flit(Flit)
+	IB34?Flit(Flit)
+	IB35?Flit(Flit)
+	IB36?Flit(Flit)
+	IB37?Flit(Flit)
+	IB38?Flit(Flit)
+	IB39?Flit(Flit)
+	IB40?Flit(Flit)
+	IB41?Flit(Flit)
+	IB42?Flit(Flit)
+	IB43?Flit(Flit)
+	IB44?Flit(Flit)
+	IB45?Flit(Flit)
+	IB46?Flit(Flit)
+	IB47?Flit(Flit)
+	IB48?Flit(Flit)
+	IB49?Flit(Flit)
+	IB50?Flit(Flit)
+	IB51?Flit(Flit)
+	IB52?Flit(Flit)
+	IB53?Flit(Flit)
+	IB54?Flit(Flit)
+	IB55?Flit(Flit)
+	IB56?Flit(Flit)
+	IB57?Flit(Flit)
+	IB58?Flit(Flit)
+	IB59?Flit(Flit)
+	IB60?Flit(Flit)
+	IB61?Flit(Flit)
+	IB62?Flit(Flit)
+	IB63?Flit(Flit)
+	IB64?Flit(Flit)
+	IB65?Flit(Flit)
+	IB66?Flit(Flit)
+	IB67?Flit(Flit)
+	IB68?Flit(Flit)
+	IB69?Flit(Flit)
+	IB70?Flit(Flit)
+	IB71?Flit(Flit)
+	IB72?Flit(Flit)
+	IB73?Flit(Flit)
+	IB74?Flit(Flit)
+	IB75?Flit(Flit)
+	IB76?Flit(Flit)
+	IB77?Flit(Flit)
+	IB78?Flit(Flit)
+	IB79?Flit(Flit)
+	IB80?Flit(Flit)
+	IB81?Flit(Flit)
+	IB82?Flit(Flit)
+	IB83?Flit(Flit)
+	IB84?Flit(Flit)
+	IB85?Flit(Flit)
+	IB86?Flit(Flit)
+	IB87?Flit(Flit)
+	IB88?Flit(Flit)
+	IB89?Flit(Flit)
+	IB90?Flit(Flit)
+	IB91?Flit(Flit)
+	IB92?Flit(Flit)
+	IB93?Flit(Flit)
+	IB94?Flit(Flit)
+	IB95?Flit(Flit)
+	IB96?Flit(Flit)
+	IB97?Flit(Flit)
+	IB98?Flit(Flit)
+	IB99?Flit(Flit)
+	IB100?Flit(Flit)
+	IB101?Flit(Flit)
+	IB102?Flit(Flit)
+	IB103?Flit(Flit)
+	IB104?Flit(Flit)
+	IB105?Flit(Flit)
+	IB106?Flit(Flit)
+	IB107?Flit(Flit)
+	IB108?Flit(Flit)
+	IB109?Flit(Flit)
+	IB110?Flit(Flit)
+	IB111?Flit(Flit)
+	IB112?Flit(Flit)
+	IB113?Flit(Flit)
+	IB114?Flit(Flit)
+	IB115?Flit(Flit)
+	IB116?Flit(Flit)
+	IB117?Flit(Flit)
+	IB118?Flit(Flit)
+	IB119?Flit(Flit)
+	IB120?Flit(Flit)
+	IB121?Flit(Flit)
+	IB122?Flit(Flit)
+	IB123?Flit(Flit)
+	IB124?Flit(Flit)
+	IB125?Flit(Flit)
+	IB126?Flit(Flit)
+	IB127?Flit(Flit)
+	IB128?Flit(Flit)
+	OB1!Flit(Flit)
+	OB2!Flit(Flit)
+	OB3!Flit(Flit)
+	OB4!Flit(Flit)
+	OB5!Flit(Flit)
+	OB6!Flit(Flit)
+	OB7!Flit(Flit)
+	OB8!Flit(Flit)
+	OB9!Flit(Flit)
+	OB10!Flit(Flit)
+	OB11!Flit(Flit)
+	OB12!Flit(Flit)
+	OB13!Flit(Flit)
+	OB14!Flit(Flit)
+	OB15!Flit(Flit)
+	OB16!Flit(Flit)
+	OB17!Flit(Flit)
+	OB18!Flit(Flit)
+	OB19!Flit(Flit)
+	OB20!Flit(Flit)
+	OB21!Flit(Flit)
+	OB22!Flit(Flit)
+	OB23!Flit(Flit)
+	OB24!Flit(Flit)
+	OB25!Flit(Flit)
+	OB26!Flit(Flit)
+	OB27!Flit(Flit)
+	OB28!Flit(Flit)
+	OB29!Flit(Flit)
+	OB30!Flit(Flit)
+	OB31!Flit(Flit)
+	OB32!Flit(Flit)
+	OB33!Flit(Flit)
+	OB34!Flit(Flit)
+	OB35!Flit(Flit)
+	OB36!Flit(Flit)
+	OB37!Flit(Flit)
+	OB38!Flit(Flit)
+	OB39!Flit(Flit)
+	OB40!Flit(Flit)
+	OB41!Flit(Flit)
+	OB42!Flit(Flit)
+	OB43!Flit(Flit)
+	OB44!Flit(Flit)
+	OB45!Flit(Flit)
+	OB46!Flit(Flit)
+	OB47!Flit(Flit)
+	OB48!Flit(Flit)
+	OB49!Flit(Flit)
+	OB50!Flit(Flit)
+	OB51!Flit(Flit)
+	OB52!Flit(Flit)
+	OB53!Flit(Flit)
+	OB54!Flit(Flit)
+	OB55!Flit(Flit)
+	OB56!Flit(Flit)
+	OB57!Flit(Flit)
+	OB58!Flit(Flit)
+	OB59!Flit(Flit)
+	OB60!Flit(Flit)
+	OB61!Flit(Flit)
+	OB62!Flit(Flit)
+	OB63!Flit(Flit)
+	OB64!Flit(Flit)
+	OB65!Flit(Flit)
+	OB66!Flit(Flit)
+	OB67!Flit(Flit)
+	OB68!Flit(Flit)
+	OB69!Flit(Flit)
+	OB70!Flit(Flit)
+	OB71!Flit(Flit)
+	OB72!Flit(Flit)
+	OB73!Flit(Flit)
+	OB74!Flit(Flit)
+	OB75!Flit(Flit)
+	OB76!Flit(Flit)
+	OB77!Flit(Flit)
+	OB78!Flit(Flit)
+	OB79!Flit(Flit)
+	OB80!Flit(Flit)
+	OB81!Flit(Flit)
+	OB82!Flit(Flit)
+	OB83!Flit(Flit)
+	OB84!Flit(Flit)
+	OB85!Flit(Flit)
+	OB86!Flit(Flit)
+	OB87!Flit(Flit)
+	OB88!Flit(Flit)
+	OB89!Flit(Flit)
+	OB90!Flit(Flit)
+	OB91!Flit(Flit)
+	OB92!Flit(Flit)
+	OB93!Flit(Flit)
+	OB94!Flit(Flit)
+	OB95!Flit(Flit)
+	OB96!Flit(Flit)
+	OB97!Flit(Flit)
+	OB98!Flit(Flit)
+	OB99!Flit(Flit)
+	OB100!Flit(Flit)
+	OB101!Flit(Flit)
+	OB102!Flit(Flit)
+	OB103!Flit(Flit)
+	OB104!Flit(Flit)
+	OB105!Flit(Flit)
+	OB106!Flit(Flit)
+	OB107!Flit(Flit)
+	OB108!Flit(Flit)
+	OB109!Flit(Flit)
+	OB110!Flit(Flit)
+	OB111!Flit(Flit)
+	OB112!Flit(Flit)
+	OB113!Flit(Flit)
+	OB114!Flit(Flit)
+	OB115!Flit(Flit)
+	OB116!Flit(Flit)
+	OB117!Flit(Flit)
+	OB118!Flit(Flit)
+	OB119!Flit(Flit)
+	OB120!Flit(Flit)
+	OB121!Flit(Flit)
+	OB122!Flit(Flit)
+	OB123!Flit(Flit)
+	OB124!Flit(Flit)
+	OB125!Flit(Flit)
+	OB126!Flit(Flit)
+	OB127!Flit(Flit)
+	OB128!Flit(Flit)
+
+variables
+	RoutingDistribution: Distribution
+
+init
+	Initialise()()
+
+methods
+	Initialise()()
+		RoutingDistribution := new(DiscreteUniform) withParameters(1, 64);
+		TransferFlit()()
+		
+	TransferFlit()()
+	|f: Flit, i: Integer, dest: Integer, childTerminalBase: Integer, childIndexInterval: Integer, busIndex1: Integer, busIndex2: Integer|//, busDegree: Integer, nodeLevel: Integer|
+
+		sel
+			IB1?Flit(f)
+		or
+			IB2?Flit(f)
+		or
+			IB3?Flit(f)
+		or
+			IB4?Flit(f)
+		or
+			IB5?Flit(f)
+		or
+			IB6?Flit(f)
+		or
+			IB7?Flit(f)
+		or
+			IB8?Flit(f)
+		or
+			IB9?Flit(f)
+		or
+			IB10?Flit(f)
+		or
+			IB11?Flit(f)
+		or
+			IB12?Flit(f)
+		or
+			IB13?Flit(f)
+		or
+			IB14?Flit(f)
+		or
+			IB15?Flit(f)
+		or
+			IB16?Flit(f)
+		or
+			IB17?Flit(f)
+		or
+			IB18?Flit(f)
+		or
+			IB19?Flit(f)
+		or
+			IB20?Flit(f)
+		or
+			IB21?Flit(f)
+		or
+			IB22?Flit(f)
+		or
+			IB23?Flit(f)
+		or
+			IB24?Flit(f)
+		or
+			IB25?Flit(f)
+		or
+			IB26?Flit(f)
+		or
+			IB27?Flit(f)
+		or
+			IB28?Flit(f)
+		or
+			IB29?Flit(f)
+		or
+			IB30?Flit(f)
+		or
+			IB31?Flit(f)
+		or
+			IB32?Flit(f)
+		or
+			IB33?Flit(f)
+		or
+			IB34?Flit(f)
+		or
+			IB35?Flit(f)
+		or
+			IB36?Flit(f)
+		or
+			IB37?Flit(f)
+		or
+			IB38?Flit(f)
+		or
+			IB39?Flit(f)
+		or
+			IB40?Flit(f)
+		or
+			IB41?Flit(f)
+		or
+			IB42?Flit(f)
+		or
+			IB43?Flit(f)
+		or
+			IB44?Flit(f)
+		or
+			IB45?Flit(f)
+		or
+			IB46?Flit(f)
+		or
+			IB47?Flit(f)
+		or
+			IB48?Flit(f)
+		or
+			IB49?Flit(f)
+		or
+			IB50?Flit(f)
+		or
+			IB51?Flit(f)
+		or
+			IB52?Flit(f)
+		or
+			IB53?Flit(f)
+		or
+			IB54?Flit(f)
+		or
+			IB55?Flit(f)
+		or
+			IB56?Flit(f)
+		or
+			IB57?Flit(f)
+		or
+			IB58?Flit(f)
+		or
+			IB59?Flit(f)
+		or
+			IB60?Flit(f)
+		or
+			IB61?Flit(f)
+		or
+			IB62?Flit(f)
+		or
+			IB63?Flit(f)
+		or
+			IB64?Flit(f)
+		or
+			IB65?Flit(f)
+		or
+			IB66?Flit(f)
+		or
+			IB67?Flit(f)
+		or
+			IB68?Flit(f)
+		or
+			IB69?Flit(f)
+		or
+			IB70?Flit(f)
+		or
+			IB71?Flit(f)
+		or
+			IB72?Flit(f)
+		or
+			IB73?Flit(f)
+		or
+			IB74?Flit(f)
+		or
+			IB75?Flit(f)
+		or
+			IB76?Flit(f)
+		or
+			IB77?Flit(f)
+		or
+			IB78?Flit(f)
+		or
+			IB79?Flit(f)
+		or
+			IB80?Flit(f)
+		or
+			IB81?Flit(f)
+		or
+			IB82?Flit(f)
+		or
+			IB83?Flit(f)
+		or
+			IB84?Flit(f)
+		or
+			IB85?Flit(f)
+		or
+			IB86?Flit(f)
+		or
+			IB87?Flit(f)
+		or
+			IB88?Flit(f)
+		or
+			IB89?Flit(f)
+		or
+			IB90?Flit(f)
+		or
+			IB91?Flit(f)
+		or
+			IB92?Flit(f)
+		or
+			IB93?Flit(f)
+		or
+			IB94?Flit(f)
+		or
+			IB95?Flit(f)
+		or
+			IB96?Flit(f)
+		or
+			IB97?Flit(f)
+		or
+			IB98?Flit(f)
+		or
+			IB99?Flit(f)
+		or
+			IB100?Flit(f)
+		or
+			IB101?Flit(f)
+		or
+			IB102?Flit(f)
+		or
+			IB103?Flit(f)
+		or
+			IB104?Flit(f)
+		or
+			IB105?Flit(f)
+		or
+			IB106?Flit(f)
+		or
+			IB107?Flit(f)
+		or
+			IB108?Flit(f)
+		or
+			IB109?Flit(f)
+		or
+			IB110?Flit(f)
+		or
+			IB111?Flit(f)
+		or
+			IB112?Flit(f)
+		or
+			IB113?Flit(f)
+		or
+			IB114?Flit(f)
+		or
+			IB115?Flit(f)
+		or
+			IB116?Flit(f)
+		or
+			IB117?Flit(f)
+		or
+			IB118?Flit(f)
+		or
+			IB119?Flit(f)
+		or
+			IB120?Flit(f)
+		or
+			IB121?Flit(f)
+		or
+			IB122?Flit(f)
+		or
+			IB123?Flit(f)
+		or
+			IB124?Flit(f)
+		or
+			IB125?Flit(f)
+		or
+			IB126?Flit(f)
+		or
+			IB127?Flit(f)
+		or
+			IB128?Flit(f)
+		les;
+
+		delay(ProcessingTime);
+
+		// busDegree := 2;
+		// nodeLevel := 7;
+
+		busIndex1 := 1;
+		busIndex2 := 2;
+
+		childTerminalBase := -1+NodeY*128-191;// (NodeY-1-(1/busDegree))*busDegree^nodeLevel;
+		childIndexInterval := 64;//busDegree^(nodeLevel-1);
+
+		dest := f getDestination();
+		i := RoutingDistribution sample();
+
+		// Check if any downward busses has access to the destination
+		if (dest >= (childTerminalBase + busIndex1*childIndexInterval)) & (dest <= (childTerminalBase - 1 + (busIndex1+1)*childIndexInterval)) then
+			if i==1 then
+				OB1!Flit(f)
+			else if i==2 then
+				OB2!Flit(f)
+			else if i==3 then
+				OB3!Flit(f)
+			else if i==4 then
+				OB4!Flit(f)
+			else if i==5 then
+				OB5!Flit(f)
+			else if i==6 then
+				OB6!Flit(f)
+			else if i==7 then
+				OB7!Flit(f)
+			else if i==8 then
+				OB8!Flit(f)
+			else if i==9 then
+				OB9!Flit(f)
+			else if i==10 then
+				OB10!Flit(f)
+			else if i==11 then
+				OB11!Flit(f)
+			else if i==12 then
+				OB12!Flit(f)
+			else if i==13 then
+				OB13!Flit(f)
+			else if i==14 then
+				OB14!Flit(f)
+			else if i==15 then
+				OB15!Flit(f)
+			else if i==16 then
+				OB16!Flit(f)
+			else if i==17 then
+				OB17!Flit(f)
+			else if i==18 then
+				OB18!Flit(f)
+			else if i==19 then
+				OB19!Flit(f)
+			else if i==20 then
+				OB20!Flit(f)
+			else if i==21 then
+				OB21!Flit(f)
+			else if i==22 then
+				OB22!Flit(f)
+			else if i==23 then
+				OB23!Flit(f)
+			else if i==24 then
+				OB24!Flit(f)
+			else if i==25 then
+				OB25!Flit(f)
+			else if i==26 then
+				OB26!Flit(f)
+			else if i==27 then
+				OB27!Flit(f)
+			else if i==28 then
+				OB28!Flit(f)
+			else if i==29 then
+				OB29!Flit(f)
+			else if i==30 then
+				OB30!Flit(f)
+			else if i==31 then
+				OB31!Flit(f)
+			else if i==32 then
+				OB32!Flit(f)
+			else if i==33 then
+				OB33!Flit(f)
+			else if i==34 then
+				OB34!Flit(f)
+			else if i==35 then
+				OB35!Flit(f)
+			else if i==36 then
+				OB36!Flit(f)
+			else if i==37 then
+				OB37!Flit(f)
+			else if i==38 then
+				OB38!Flit(f)
+			else if i==39 then
+				OB39!Flit(f)
+			else if i==40 then
+				OB40!Flit(f)
+			else if i==41 then
+				OB41!Flit(f)
+			else if i==42 then
+				OB42!Flit(f)
+			else if i==43 then
+				OB43!Flit(f)
+			else if i==44 then
+				OB44!Flit(f)
+			else if i==45 then
+				OB45!Flit(f)
+			else if i==46 then
+				OB46!Flit(f)
+			else if i==47 then
+				OB47!Flit(f)
+			else if i==48 then
+				OB48!Flit(f)
+			else if i==49 then
+				OB49!Flit(f)
+			else if i==50 then
+				OB50!Flit(f)
+			else if i==51 then
+				OB51!Flit(f)
+			else if i==52 then
+				OB52!Flit(f)
+			else if i==53 then
+				OB53!Flit(f)
+			else if i==54 then
+				OB54!Flit(f)
+			else if i==55 then
+				OB55!Flit(f)
+			else if i==56 then
+				OB56!Flit(f)
+			else if i==57 then
+				OB57!Flit(f)
+			else if i==58 then
+				OB58!Flit(f)
+			else if i==59 then
+				OB59!Flit(f)
+			else if i==60 then
+				OB60!Flit(f)
+			else if i==61 then
+				OB61!Flit(f)
+			else if i==62 then
+				OB62!Flit(f)
+			else if i==63 then
+				OB63!Flit(f)
+			else if i==64 then
+				OB64!Flit(f)
+			fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi
+		else if (dest >= (childTerminalBase + busIndex2*childIndexInterval)) & (dest <= (childTerminalBase - 1 + (busIndex2+1)*childIndexInterval)) then
+			if i==1 then
+					OB65!Flit(f)
+			else if i==2 then
+					OB66!Flit(f)
+			else if i==3 then
+					OB67!Flit(f)
+			else if i==4 then
+					OB68!Flit(f)
+			else if i==5 then
+					OB69!Flit(f)
+			else if i==6 then
+					OB70!Flit(f)
+			else if i==7 then
+					OB71!Flit(f)
+			else if i==8 then
+					OB72!Flit(f)
+			else if i==9 then
+					OB73!Flit(f)
+			else if i==10 then
+					OB74!Flit(f)
+			else if i==11 then
+					OB75!Flit(f)
+			else if i==12 then
+					OB76!Flit(f)
+			else if i==13 then
+					OB77!Flit(f)
+			else if i==14 then
+					OB78!Flit(f)
+			else if i==15 then
+					OB79!Flit(f)
+			else if i==16 then
+					OB80!Flit(f)
+			else if i==17 then
+					OB81!Flit(f)
+			else if i==18 then
+					OB82!Flit(f)
+			else if i==19 then
+					OB83!Flit(f)
+			else if i==20 then
+					OB84!Flit(f)
+			else if i==21 then
+					OB85!Flit(f)
+			else if i==22 then
+					OB86!Flit(f)
+			else if i==23 then
+					OB87!Flit(f)
+			else if i==24 then
+					OB88!Flit(f)
+			else if i==25 then
+					OB89!Flit(f)
+			else if i==26 then
+					OB90!Flit(f)
+			else if i==27 then
+					OB91!Flit(f)
+			else if i==28 then
+					OB92!Flit(f)
+			else if i==29 then
+					OB93!Flit(f)
+			else if i==30 then
+					OB94!Flit(f)
+			else if i==31 then
+					OB95!Flit(f)
+			else if i==32 then
+					OB96!Flit(f)
+			else if i==33 then
+					OB97!Flit(f)
+			else if i==34 then
+					OB98!Flit(f)
+			else if i==35 then
+					OB99!Flit(f)
+			else if i==36 then
+					OB100!Flit(f)
+			else if i==37 then
+					OB101!Flit(f)
+			else if i==38 then
+					OB102!Flit(f)
+			else if i==39 then
+					OB103!Flit(f)
+			else if i==40 then
+					OB104!Flit(f)
+			else if i==41 then
+					OB105!Flit(f)
+			else if i==42 then
+					OB106!Flit(f)
+			else if i==43 then
+					OB107!Flit(f)
+			else if i==44 then
+					OB108!Flit(f)
+			else if i==45 then
+					OB109!Flit(f)
+			else if i==46 then
+					OB110!Flit(f)
+			else if i==47 then
+					OB111!Flit(f)
+			else if i==48 then
+					OB112!Flit(f)
+			else if i==49 then
+					OB113!Flit(f)
+			else if i==50 then
+					OB114!Flit(f)
+			else if i==51 then
+					OB115!Flit(f)
+			else if i==52 then
+					OB116!Flit(f)
+			else if i==53 then
+					OB117!Flit(f)
+			else if i==54 then
+					OB118!Flit(f)
+			else if i==55 then
+					OB119!Flit(f)
+			else if i==56 then
+					OB120!Flit(f)
+			else if i==57 then
+					OB121!Flit(f)
+			else if i==58 then
+					OB122!Flit(f)
+			else if i==59 then
+					OB123!Flit(f)
+			else if i==60 then
+					OB124!Flit(f)
+			else if i==61 then
+					OB125!Flit(f)
+			else if i==62 then
+					OB126!Flit(f)
+			else if i==63 then
+					OB127!Flit(f)
+			else if i==64 then
+					OB128!Flit(f)
+			fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi
+		fi fi;
+
+		TransferFlit()()

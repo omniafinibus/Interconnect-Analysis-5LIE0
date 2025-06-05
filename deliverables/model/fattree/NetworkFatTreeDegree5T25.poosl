@@ -1,0 +1,91 @@
+import "FatTreeDegree5T25.poosl"
+import "../common/NetworkInterface.poosl"
+
+cluster class NetworkFatTreeDegree5T25(FifoCapacity: Integer, FifoProcessingTime: Real, NIBufferCapacity: Integer, RouterProcessingTime: Real, TransferDelay: Real)
+ports
+	Node1, Node2, Node3, Node4, Node5,
+	Node6, Node7, Node8, Node9, Node10,
+	Node11, Node12, Node13, Node14, Node15,
+	Node16, Node17, Node18, Node19, Node20,
+	Node21, Node22, Node23, Node24, Node25
+
+instances
+	Network: FatTreeDegree5T25(FifoCapacity := FifoCapacity, FifoProcessingTime := FifoProcessingTime, RouterProcessingTime := RouterProcessingTime)
+	NI1:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 1, TransferDelay := TransferDelay)
+	NI2:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 2, TransferDelay := TransferDelay)
+	NI3:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 3, TransferDelay := TransferDelay)
+	NI4:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 4, TransferDelay := TransferDelay)
+	NI5:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 5, TransferDelay := TransferDelay)
+	NI6:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 6, TransferDelay := TransferDelay)
+	NI7:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 7, TransferDelay := TransferDelay)
+	NI8:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 8, TransferDelay := TransferDelay)
+	NI9:  NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 9, TransferDelay := TransferDelay)
+	NI10: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 10, TransferDelay := TransferDelay)
+	NI11: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 11, TransferDelay := TransferDelay)
+	NI12: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 12, TransferDelay := TransferDelay)
+	NI13: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 13, TransferDelay := TransferDelay)
+	NI14: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 14, TransferDelay := TransferDelay)
+	NI15: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 15, TransferDelay := TransferDelay)
+	NI16: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 16, TransferDelay := TransferDelay)
+	NI17: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 17, TransferDelay := TransferDelay)
+	NI18: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 18, TransferDelay := TransferDelay)
+	NI19: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 19, TransferDelay := TransferDelay)
+	NI20: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 20, TransferDelay := TransferDelay)
+	NI21: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 21, TransferDelay := TransferDelay)
+	NI22: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 22, TransferDelay := TransferDelay)
+	NI23: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 23, TransferDelay := TransferDelay)
+	NI24: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 24, TransferDelay := TransferDelay)
+	NI25: NetworkInterface(BufferCapacity := NIBufferCapacity, MyID := 25, TransferDelay := TransferDelay)
+
+channels
+	{Network.Out1, Network.In1, NI1.Network}
+	{Network.Out2, Network.In2, NI2.Network}
+	{Network.Out3, Network.In3, NI3.Network}
+	{Network.Out4, Network.In4, NI4.Network}
+	{Network.Out5, Network.In5, NI5.Network}
+	{Network.Out6, Network.In6, NI6.Network}
+	{Network.Out7, Network.In7, NI7.Network}
+	{Network.Out8, Network.In8, NI8.Network}
+	{Network.Out9, Network.In9, NI9.Network}
+	{Network.Out10, Network.In10, NI10.Network}
+	{Network.Out11, Network.In11, NI11.Network}
+	{Network.Out12, Network.In12, NI12.Network}
+	{Network.Out13, Network.In13, NI13.Network}
+	{Network.Out14, Network.In14, NI14.Network}
+	{Network.Out15, Network.In15, NI15.Network}
+	{Network.Out16, Network.In16, NI16.Network}
+	{Network.Out17, Network.In17, NI17.Network}
+	{Network.Out18, Network.In18, NI18.Network}
+	{Network.Out19, Network.In19, NI19.Network}
+	{Network.Out20, Network.In20, NI20.Network}
+	{Network.Out21, Network.In21, NI21.Network}
+	{Network.Out22, Network.In22, NI22.Network}
+	{Network.Out23, Network.In23, NI23.Network}
+	{Network.Out24, Network.In24, NI24.Network}
+	{Network.Out25, Network.In25, NI25.Network}
+	
+	{Node1, NI1.Node}
+	{Node2, NI2.Node}
+	{Node3, NI3.Node}
+	{Node4, NI4.Node}
+	{Node5, NI5.Node}
+	{Node6, NI6.Node}
+	{Node7, NI7.Node}
+	{Node8, NI8.Node}
+	{Node9, NI9.Node}
+	{Node10, NI10.Node}
+	{Node11, NI11.Node}
+	{Node12, NI12.Node}
+	{Node13, NI13.Node}
+	{Node14, NI14.Node}
+	{Node15, NI15.Node}
+	{Node16, NI16.Node}
+	{Node17, NI17.Node}
+	{Node18, NI18.Node}
+	{Node19, NI19.Node}
+	{Node20, NI20.Node}
+	{Node21, NI21.Node}
+	{Node22, NI22.Node}
+	{Node23, NI23.Node}
+	{Node24, NI24.Node}
+	{Node25, NI25.Node}

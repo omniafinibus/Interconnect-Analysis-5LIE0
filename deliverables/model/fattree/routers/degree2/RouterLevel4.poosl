@@ -1,0 +1,95 @@
+import "../../../common/Fifo.poosl"
+import "RouterProcessLevel4.poosl"
+
+cluster class RouterDegree2Level4 (RouterProcessingTime: Real, Y : Integer)
+
+ports
+	IB1, IB2, IB3, IB4, 
+	IB5, IB6, IB7, IB8, 
+	IB9, IB10,IB11,IB12,
+	IB13,IB14,IB15,IB16,
+	IT1, IT2, IT3, IT4, 
+	IT5, IT6, IT7, IT8, 
+	IT9, IT10,IT11,IT12,
+	IT13,IT14,IT15,IT16,
+	OB1, OB2, OB3, OB4, 
+	OB5, OB6, OB7, OB8, 
+	OB9, OB10,OB11,OB12,
+	OB13,OB14,OB15,OB16,
+	OT1, OT2, OT3, OT4, 
+	OT5, OT6, OT7, OT8, 
+	OT9, OT10,OT11,OT12,
+	OT13,OT14,OT15,OT16
+
+instances
+	Router:RandomUpStreamRouterDegree2Level4(ProcessingTime := RouterProcessingTime, NodeY := Y)
+
+channels
+
+	{IB1, Router.IB1}
+	{IB2, Router.IB2}
+	{IB3, Router.IB3}
+	{IB4, Router.IB4}
+	{IB5, Router.IB5}
+	{IB6, Router.IB6}
+	{IB7, Router.IB7}
+	{IB8, Router.IB8}
+	{IB9, Router.IB9}
+	{IB10, Router.IB10}
+	{IB11, Router.IB11}
+	{IB12, Router.IB12}
+	{IB13, Router.IB13}
+	{IB14, Router.IB14}
+	{IB15, Router.IB15}
+	{IB16, Router.IB16}
+
+	{IT1, Router.IT1}
+	{IT2, Router.IT2}
+	{IT3, Router.IT3}
+	{IT4, Router.IT4}
+	{IT5, Router.IT5}
+	{IT6, Router.IT6}
+	{IT7, Router.IT7}
+	{IT8, Router.IT8}
+	{IT9, Router.IT9}
+	{IT10, Router.IT10}
+	{IT11, Router.IT11}
+	{IT12, Router.IT12}
+	{IT13, Router.IT13}
+	{IT14, Router.IT14}
+	{IT15, Router.IT15}
+	{IT16, Router.IT16}
+
+	{Router.OB1, OB1}
+	{Router.OB2, OB2}
+	{Router.OB3, OB3}
+	{Router.OB4, OB4}
+	{Router.OB5, OB5}
+	{Router.OB6, OB6}
+	{Router.OB7, OB7}
+	{Router.OB8, OB8}
+	{Router.OB9, OB9}
+	{Router.OB10, OB10}
+	{Router.OB11, OB11}
+	{Router.OB12, OB12}
+	{Router.OB13, OB13}
+	{Router.OB14, OB14}
+	{Router.OB15, OB15}
+	{Router.OB16, OB16}
+
+	{Router.OT1, OT1}
+	{Router.OT2, OT2}
+	{Router.OT3, OT3}
+	{Router.OT4, OT4}
+	{Router.OT5, OT5}
+	{Router.OT6, OT6}
+	{Router.OT7, OT7}
+	{Router.OT8, OT8}
+	{Router.OT9, OT9}
+	{Router.OT10, OT10}
+	{Router.OT11, OT11}
+	{Router.OT12, OT12}
+	{Router.OT13, OT13}
+	{Router.OT14, OT14}
+	{Router.OT15, OT15}
+	{Router.OT16, OT16}

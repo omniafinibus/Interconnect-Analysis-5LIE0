@@ -1,0 +1,65 @@
+import "../common/Fifo.poosl"
+import "NegativeRouterXY.poosl"
+import "PositiveRouterXY.poosl"
+import "EvenRouter.poosl"
+import "OddRouter.poosl"
+
+cluster class RouterXY (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+ports
+	In, IXL, IXR, IYB, IYT, Out, OXL, OXR, OYB, OYT
+instances
+	FiFo: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	NegativeRouter: NegativeRouterXY(ProcessingTime := RouterProcessingTime)
+	PositiveRouter: PositiveRouterXY(ProcessingTime := RouterProcessingTime)
+channels
+	{FiFo.In, PositiveRouter.Out } 
+	{FiFo.Out, NegativeRouter.In } 
+	{In, PositiveRouter.In } 
+	{IXL, PositiveRouter.IXL } 
+	{IXR, NegativeRouter.IXR } 
+	{IYB, NegativeRouter.IYB } 
+	{IYT, PositiveRouter.IYT } 
+	{Out, NegativeRouter.Out } 
+	{OXL, NegativeRouter.OXL } 
+	{OXR, PositiveRouter.OXR } 
+	{OYB, PositiveRouter.OYB } 
+	{OYT, NegativeRouter.OYT } 
+
+cluster class RouterOdd (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+ports
+	In, IXL, IXR, IYB, IYT, Out, OXL, OXR, OYB, OYT
+instances
+	FiFo: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	OddRouter: OddRouter(ProcessingTime := RouterProcessingTime)
+channels
+	{In, FiFo.In}
+	{FiFo.Out, OddRouter.In } 
+	{In, OddRouter.In } 
+	{IXL, OddRouter.IXL } 
+	{IXR, OddRouter.IXR } 
+	{IYB, OddRouter.IYB } 
+	{IYT, OddRouter.IYT } 
+	{OddRouter.Out, Out } 
+	{OddRouter.OXL, OXL } 
+	{OddRouter.OXR, OXR } 
+	{OddRouter.OYB, OYB } 
+	{OddRouter.OYT, OYT } 
+
+cluster class RouterEven (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+ports
+	In, IXL, IXR, IYB, IYT, Out, OXL, OXR, OYB, OYT
+instances
+	FiFo: Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	EvenRouter: EvenRouter(ProcessingTime := RouterProcessingTime)
+channels
+	{In, FiFo.In}
+	{FiFo.Out, EvenRouter.In } 
+	{IXL, EvenRouter.IXL } 
+	{IXR, EvenRouter.IXR } 
+	{IYB, EvenRouter.IYB } 
+	{IYT, EvenRouter.IYT } 
+	{EvenRouter.Out, Out}
+	{EvenRouter.OXL, OXL}
+	{EvenRouter.OXR, OXR}
+	{EvenRouter.OYB, OYB}
+	{EvenRouter.OYT, OYT}

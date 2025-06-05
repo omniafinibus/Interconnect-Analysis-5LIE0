@@ -1,0 +1,218 @@
+import "../../../common/Flit.poosl"
+import "../../../libraries/distributions.poosl"
+
+process class RandomUpStreamRouterDegree3Level3Root(ProcessingTime : Real, NodeY: Integer)
+
+ports
+	IB1, IB2, IB3, IB4, IB5,
+	IB6, IB7, IB8, IB9, IB10,
+	IB11,IB12,IB13,IB14,IB15,
+	IB16,IB17,IB18,IB19,IB20,
+	IB21,IB22,IB23,IB24,IB25,
+	IB26,IB27,
+	OB1, OB2, OB3, OB4, OB5,
+	OB6, OB7, OB8, OB9, OB10,
+	OB11,OB12,OB13,OB14,OB15,
+	OB16,OB17,OB18,OB19,OB20,
+	OB21,OB22,OB23,OB24,OB25,
+	OB26,OB27
+	
+messages
+	IB1?Flit(Flit)
+	IB2?Flit(Flit)
+	IB3?Flit(Flit)
+	IB4?Flit(Flit)
+	IB5?Flit(Flit)
+	IB6?Flit(Flit)
+	IB7?Flit(Flit)
+	IB8?Flit(Flit)
+	IB9?Flit(Flit)
+	IB10?Flit(Flit)
+	IB11?Flit(Flit)
+	IB12?Flit(Flit)
+	IB13?Flit(Flit)
+	IB14?Flit(Flit)
+	IB15?Flit(Flit)
+	IB16?Flit(Flit)
+	IB17!Flit(Flit)
+	IB18!Flit(Flit)
+	IB19!Flit(Flit)
+	IB20!Flit(Flit)
+	IB21!Flit(Flit)
+	IB22!Flit(Flit)
+	IB23!Flit(Flit)
+	IB24!Flit(Flit)
+	IB25!Flit(Flit)
+	IB26!Flit(Flit)
+	IB27!Flit(Flit)
+	OB1!Flit(Flit)
+	OB2!Flit(Flit)
+	OB3!Flit(Flit)
+	OB4!Flit(Flit)
+	OB5!Flit(Flit)
+	OB6!Flit(Flit)
+	OB7!Flit(Flit)
+	OB8!Flit(Flit)
+	OB9!Flit(Flit)
+	OB10!Flit(Flit)
+	OB11!Flit(Flit)
+	OB12!Flit(Flit)
+	OB13!Flit(Flit)
+	OB14!Flit(Flit)
+	OB15!Flit(Flit)
+	OB16!Flit(Flit)
+	OB17!Flit(Flit)
+	OB18!Flit(Flit)
+	OB19!Flit(Flit)
+	OB20!Flit(Flit)
+	OB21!Flit(Flit)
+	OB22!Flit(Flit)
+	OB23!Flit(Flit)
+	OB24!Flit(Flit)
+	OB25!Flit(Flit)
+	OB26!Flit(Flit)
+	OB27!Flit(Flit)
+variables
+	RoutingDistribution: Distribution
+init
+	Initialise()()
+methods
+	Initialise()()
+		RoutingDistribution := new(DiscreteUniform) withParameters(1, 9);
+		TransferFlit()()
+	TransferFlit()()
+	|f: Flit, dest: Integer, i: Integer, childTerminalBase: Integer, childIndexInterval: Integer, busIndex1: Integer, busIndex2: Integer, busIndex3: Integer|//, busDegree: Integer, nodeLevel: Integer|
+
+		sel
+			IB1?Flit(f)
+		or
+			IB2?Flit(f)
+		or
+			IB3?Flit(f)
+		or
+			IB4?Flit(f)
+		or
+			IB5?Flit(f)
+		or
+			IB6?Flit(f)
+		or
+			IB7?Flit(f)
+		or
+			IB8?Flit(f)
+		or
+			IB9?Flit(f)
+		or
+			IB10?Flit(f)
+		or
+			IB11?Flit(f)
+		or
+			IB12?Flit(f)
+		or
+			IB13?Flit(f)
+		or
+			IB14?Flit(f)
+		or
+			IB15?Flit(f)
+		or
+			IB16?Flit(f)
+		or
+			IB17!Flit(f)
+		or
+			IB18!Flit(f)
+		or
+			IB19!Flit(f)
+		or
+			IB20!Flit(f)
+		or
+			IB21!Flit(f)
+		or
+			IB22!Flit(f)
+		or
+			IB23!Flit(f)
+		or
+			IB24!Flit(f)
+		or
+			IB25!Flit(f)
+		or
+			IB26!Flit(f)
+		or
+			IB27!Flit(f)
+		les;
+
+		delay(ProcessingTime);
+
+		// busDegree := 3;
+		// nodeLevel := 3;
+		busIndex1 := 1;
+		busIndex2 := 2;
+		busIndex3 := 3;
+		childTerminalBase := -1+NodeY*27-35;  // (NodeY-1-(1/busDegree))*busDegree^nodeLevel;
+		childIndexInterval := 9; //busDegree^(nodeLevel-1);
+		dest := f getDestination();
+		i := RoutingDistribution sample();
+		// Check if any downward busses has access to the destination
+		// If it does, then check which bus contains the destinations
+		if (dest >= (childTerminalBase + busIndex1*childIndexInterval)) & (dest <= (childTerminalBase - 1 + (busIndex1+1)*childIndexInterval)) then
+			if i==1 then
+				OB1!Flit(f)
+			else if i==2 then
+				OB2!Flit(f)
+			else if i==3 then
+				OB3!Flit(f)
+			else if i==4 then
+				OB4!Flit(f)
+			else if i==5 then
+				OB5!Flit(f)
+			else if i==6 then
+				OB6!Flit(f)
+			else if i==7 then
+				OB7!Flit(f)
+			else if i==8 then
+				OB8!Flit(f)
+			else if i==9 then
+				OB9!Flit(f)
+			fi fi fi fi fi fi fi fi fi
+		else if (dest >= (childTerminalBase + busIndex2*childIndexInterval)) & (dest <= (childTerminalBase - 1 + (busIndex2+1)*childIndexInterval)) then
+			if i==1 then
+				OB10!Flit(f)
+			else if i==2 then
+				OB11!Flit(f)
+			else if i==3 then
+				OB12!Flit(f)
+			else if i==4 then
+				OB13!Flit(f)
+			else if i==5 then
+				OB14!Flit(f)
+			else if i==6 then
+				OB15!Flit(f)
+			else if i==7 then
+				OB16!Flit(f)
+			else if i==8 then
+				OB17!Flit(f)
+			else if i==9 then
+				OB18!Flit(f)
+			fi fi fi fi fi fi fi fi fi
+		else if (dest >= (childTerminalBase + busIndex3*childIndexInterval)) & (dest <= (childTerminalBase - 1 + (busIndex3+1)*childIndexInterval)) then
+			if i==1 then
+				OB19!Flit(f)
+			else if i==2 then
+				OB20!Flit(f)
+			else if i==3 then
+				OB21!Flit(f)
+			else if i==4 then
+				OB22!Flit(f)
+			else if i==5 then
+				OB23!Flit(f)
+			else if i==6 then
+				OB24!Flit(f)
+			else if i==7 then
+				OB25!Flit(f)
+			else if i==8 then
+				OB26!Flit(f)
+			else if i==9 then
+				OB27!Flit(f)
+			fi fi fi fi fi fi fi fi fi
+		fi fi fi;
+
+		TransferFlit()()
+

@@ -1,0 +1,26 @@
+import "../../../common/Fifo.poosl"
+import "RouterProcessLevel1.poosl"
+
+cluster class RouterDegree2Level1 (RouterProcessingTime: Real, Y : Integer)
+
+ports	
+	IB1, IB2,
+	IT1, IT2,
+	OB1, OB2, 
+	OT1, OT2
+
+instances
+	Router:RandomUpStreamRouterDegree2Level1(ProcessingTime := RouterProcessingTime, NodeY := Y)
+
+channels
+	{IB1, Router.IB1}
+	{IB2, Router.IB2}
+
+	{IT1, Router.IT1}
+	{IT2, Router.IT2}
+
+	{Router.OB1, OB1}
+	{Router.OB2, OB2}
+
+	{Router.OT1, OT1}
+	{Router.OT2, OT2}

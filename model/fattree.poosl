@@ -1,0 +1,94 @@
+import "fattree/instances.poosl"
+
+system
+instances
+Network1: NetworkFatTreeDegree2T25Test(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+Network2: NetworkFatTreeDegree3T25Test(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+Network3: NetworkFatTreeDegree4T25Test(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+Network4: NetworkFatTreeDegree5T25Test(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+Network5: NetworkFatTree2LayerTest(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+Network6: NetworkFatTree3LayerTest(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+Network7: NetworkFatTree4LayerTest(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+Network8: NetworkFatTree5LayerTest(
+			AccuracyCheckInterval := 1.0,
+			FifoCapacity := 2,
+			FifoProcessingTime := 0.00065,
+			LinkCapacity := 300.0,
+			Load := 0.95,
+			MeanBurstSize := 12.0,
+			NIBufferCapacity := 1,
+			RouterProcessingTime := 0.00125,
+			NITransferDelay := 0.0005)
+
+
+channels

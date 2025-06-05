@@ -1,0 +1,296 @@
+import "../../../common/Fifo.poosl"
+import "RouterProcessLevel7Root.poosl"
+
+cluster class RouterDegree2Level7Root(RouterProcessingTime: Real, Y : Integer)
+
+ports
+	IB1,  IB2,  IB3,  IB4,  IB5,  IB6,  IB7,  IB8,  IB9,  IB10,
+	IB11, IB12, IB13, IB14, IB15, IB16, IB17, IB18, IB19, IB20,
+	IB21, IB22, IB23, IB24, IB25, IB26, IB27, IB28, IB29, IB30,
+	IB31, IB32, IB33, IB34, IB35, IB36, IB37, IB38, IB39, IB40,
+	IB41, IB42, IB43, IB44, IB45, IB46, IB47, IB48, IB49, IB50, 
+	IB51, IB52, IB53, IB54, IB55, IB56, IB57, IB58, IB59, IB60,
+	IB61, IB62, IB63, IB64, IB65, IB66, IB67, IB68, IB69, IB70,
+	IB71, IB72, IB73, IB74, IB75, IB76, IB77, IB78, IB79, IB80,
+	IB81, IB82, IB83, IB84, IB85, IB86, IB87, IB88, IB89, IB90,
+	IB91, IB92, IB93, IB94, IB95, IB96, IB97, IB98, IB99, IB100,
+	IB101,IB102,IB103,IB104,IB105,IB106,IB107,IB108,IB109,IB110,
+	IB111,IB112,IB113,IB114,IB115,IB116,IB117,IB118,IB119,IB120,
+	IB121,IB122,IB123,IB124,IB125,IB126,IB127,IB128,
+	OB1,  OB2,  OB3,  OB4,  OB5,  OB6,  OB7,  OB8,  OB9,  OB10,
+	OB11, OB12, OB13, OB14, OB15, OB16, OB17, OB18, OB19, OB20,
+	OB21, OB22, OB23, OB24, OB25, OB26, OB27, OB28, OB29, OB30,
+	OB31, OB32, OB33, OB34, OB35, OB36, OB37, OB38, OB39, OB40,
+	OB41, OB42, OB43, OB44, OB45, OB46, OB47, OB48, OB49, OB50, 
+	OB51, OB52, OB53, OB54, OB55, OB56, OB57, OB58, OB59, OB60,
+	OB61, OB62, OB63, OB64, OB65, OB66, OB67, OB68, OB69, OB70,
+	OB71, OB72, OB73, OB74, OB75, OB76, OB77, OB78, OB79, OB80,
+	OB81, OB82, OB83, OB84, OB85, OB86, OB87, OB88, OB89, OB90,
+	OB91, OB92, OB93, OB94, OB95, OB96, OB97, OB98, OB99, OB100,
+	OB101,OB102,OB103,OB104,OB105,OB106,OB107,OB108,OB109,OB110,
+	OB111,OB112,OB113,OB114,OB115,OB116,OB117,OB118,OB119,OB120,
+	OB121,OB122,OB123,OB124,OB125,OB126,OB127,OB128
+
+instances
+	Router:RandomUpStreamRouterDegree2Level7Root(ProcessingTime := RouterProcessingTime, NodeY := Y)
+
+channels
+
+	{IB1, Router.IB1}
+	{IB2, Router.IB2}
+	{IB3, Router.IB3}
+	{IB4, Router.IB4}
+	{IB5, Router.IB5}
+	{IB6, Router.IB6}
+	{IB7, Router.IB7}
+	{IB8, Router.IB8}
+	{IB9, Router.IB9}
+	{IB10, Router.IB10}
+	{IB11, Router.IB11}
+	{IB12, Router.IB12}
+	{IB13, Router.IB13}
+	{IB14, Router.IB14}
+	{IB15, Router.IB15}
+	{IB16, Router.IB16}
+	{IB17, Router.IB17}
+	{IB18, Router.IB18}
+	{IB19, Router.IB19}
+	{IB20, Router.IB20}
+	{IB21, Router.IB21}
+	{IB22, Router.IB22}
+	{IB23, Router.IB23}
+	{IB24, Router.IB24}
+	{IB25, Router.IB25}
+	{IB26, Router.IB26}
+	{IB27, Router.IB27}
+	{IB28, Router.IB28}
+	{IB29, Router.IB29}
+	{IB30, Router.IB30}
+	{IB31, Router.IB31}
+	{IB32, Router.IB32}
+	{IB33, Router.IB33}
+	{IB34, Router.IB34}
+	{IB35, Router.IB35}
+	{IB36, Router.IB36}
+	{IB37, Router.IB37}
+	{IB38, Router.IB38}
+	{IB39, Router.IB39}
+	{IB40, Router.IB40}
+	{IB41, Router.IB41}
+	{IB42, Router.IB42}
+	{IB43, Router.IB43}
+	{IB44, Router.IB44}
+	{IB45, Router.IB45}
+	{IB46, Router.IB46}
+	{IB47, Router.IB47}
+	{IB48, Router.IB48}
+	{IB49, Router.IB49}
+	{IB50, Router.IB50}
+	{IB51, Router.IB51}
+	{IB52, Router.IB52}
+	{IB53, Router.IB53}
+	{IB54, Router.IB54}
+	{IB55, Router.IB55}
+	{IB56, Router.IB56}
+	{IB57, Router.IB57}
+	{IB58, Router.IB58}
+	{IB59, Router.IB59}
+	{IB60, Router.IB60}
+	{IB61, Router.IB61}
+	{IB62, Router.IB62}
+	{IB63, Router.IB63}
+	{IB64, Router.IB64}
+	{IB65, Router.IB65}
+	{IB66, Router.IB66}
+	{IB67, Router.IB67}
+	{IB68, Router.IB68}
+	{IB69, Router.IB69}
+	{IB70, Router.IB70}
+	{IB71, Router.IB71}
+	{IB72, Router.IB72}
+	{IB73, Router.IB73}
+	{IB74, Router.IB74}
+	{IB75, Router.IB75}
+	{IB76, Router.IB76}
+	{IB77, Router.IB77}
+	{IB78, Router.IB78}
+	{IB79, Router.IB79}
+	{IB80, Router.IB80}
+	{IB81, Router.IB81}
+	{IB82, Router.IB82}
+	{IB83, Router.IB83}
+	{IB84, Router.IB84}
+	{IB85, Router.IB85}
+	{IB86, Router.IB86}
+	{IB87, Router.IB87}
+	{IB88, Router.IB88}
+	{IB89, Router.IB89}
+	{IB90, Router.IB90}
+	{IB91, Router.IB91}
+	{IB92, Router.IB92}
+	{IB93, Router.IB93}
+	{IB94, Router.IB94}
+	{IB95, Router.IB95}
+	{IB96, Router.IB96}
+	{IB97, Router.IB97}
+	{IB98, Router.IB98}
+	{IB99, Router.IB99}
+	{IB100, Router.IB100}
+	{IB101, Router.IB101}
+	{IB102, Router.IB102}
+	{IB103, Router.IB103}
+	{IB104, Router.IB104}
+	{IB105, Router.IB105}
+	{IB106, Router.IB106}
+	{IB107, Router.IB107}
+	{IB108, Router.IB108}
+	{IB109, Router.IB109}
+	{IB110, Router.IB110}
+	{IB111, Router.IB111}
+	{IB112, Router.IB112}
+	{IB113, Router.IB113}
+	{IB114, Router.IB114}
+	{IB115, Router.IB115}
+	{IB116, Router.IB116}
+	{IB117, Router.IB117}
+	{IB118, Router.IB118}
+	{IB119, Router.IB119}
+	{IB120, Router.IB120}
+	{IB121, Router.IB121}
+	{IB122, Router.IB122}
+	{IB123, Router.IB123}
+	{IB124, Router.IB124}
+	{IB125, Router.IB125}
+	{IB126, Router.IB126}
+	{IB127, Router.IB127}
+	{IB128, Router.IB128}
+
+
+	{Router.OB1, OB1}
+	{Router.OB2, OB2}
+	{Router.OB3, OB3}
+	{Router.OB4, OB4}
+	{Router.OB5, OB5}
+	{Router.OB6, OB6}
+	{Router.OB7, OB7}
+	{Router.OB8, OB8}
+	{Router.OB9, OB9}
+	{Router.OB10, OB10}
+	{Router.OB11, OB11}
+	{Router.OB12, OB12}
+	{Router.OB13, OB13}
+	{Router.OB14, OB14}
+	{Router.OB15, OB15}
+	{Router.OB16, OB16}
+	{Router.OB17, OB17}
+	{Router.OB18, OB18}
+	{Router.OB19, OB19}
+	{Router.OB20, OB20}
+	{Router.OB21, OB21}
+	{Router.OB22, OB22}
+	{Router.OB23, OB23}
+	{Router.OB24, OB24}
+	{Router.OB25, OB25}
+	{Router.OB26, OB26}
+	{Router.OB27, OB27}
+	{Router.OB28, OB28}
+	{Router.OB29, OB29}
+	{Router.OB30, OB30}
+	{Router.OB31, OB31}
+	{Router.OB32, OB32}
+	{Router.OB33, OB33}
+	{Router.OB34, OB34}
+	{Router.OB35, OB35}
+	{Router.OB36, OB36}
+	{Router.OB37, OB37}
+	{Router.OB38, OB38}
+	{Router.OB39, OB39}
+	{Router.OB40, OB40}
+	{Router.OB41, OB41}
+	{Router.OB42, OB42}
+	{Router.OB43, OB43}
+	{Router.OB44, OB44}
+	{Router.OB45, OB45}
+	{Router.OB46, OB46}
+	{Router.OB47, OB47}
+	{Router.OB48, OB48}
+	{Router.OB49, OB49}
+	{Router.OB50, OB50}
+	{Router.OB51, OB51}
+	{Router.OB52, OB52}
+	{Router.OB53, OB53}
+	{Router.OB54, OB54}
+	{Router.OB55, OB55}
+	{Router.OB56, OB56}
+	{Router.OB57, OB57}
+	{Router.OB58, OB58}
+	{Router.OB59, OB59}
+	{Router.OB60, OB60}
+	{Router.OB61, OB61}
+	{Router.OB62, OB62}
+	{Router.OB63, OB63}
+	{Router.OB64, OB64}
+	{Router.OB65, OB65}
+	{Router.OB66, OB66}
+	{Router.OB67, OB67}
+	{Router.OB68, OB68}
+	{Router.OB69, OB69}
+	{Router.OB70, OB70}
+	{Router.OB71, OB71}
+	{Router.OB72, OB72}
+	{Router.OB73, OB73}
+	{Router.OB74, OB74}
+	{Router.OB75, OB75}
+	{Router.OB76, OB76}
+	{Router.OB77, OB77}
+	{Router.OB78, OB78}
+	{Router.OB79, OB79}
+	{Router.OB80, OB80}
+	{Router.OB81, OB81}
+	{Router.OB82, OB82}
+	{Router.OB83, OB83}
+	{Router.OB84, OB84}
+	{Router.OB85, OB85}
+	{Router.OB86, OB86}
+	{Router.OB87, OB87}
+	{Router.OB88, OB88}
+	{Router.OB89, OB89}
+	{Router.OB90, OB90}
+	{Router.OB91, OB91}
+	{Router.OB92, OB92}
+	{Router.OB93, OB93}
+	{Router.OB94, OB94}
+	{Router.OB95, OB95}
+	{Router.OB96, OB96}
+	{Router.OB97, OB97}
+	{Router.OB98, OB98}
+	{Router.OB99, OB99}
+	{Router.OB100, OB100}
+	{Router.OB101, OB101}
+	{Router.OB102, OB102}
+	{Router.OB103, OB103}
+	{Router.OB104, OB104}
+	{Router.OB105, OB105}
+	{Router.OB106, OB106}
+	{Router.OB107, OB107}
+	{Router.OB108, OB108}
+	{Router.OB109, OB109}
+	{Router.OB110, OB110}
+	{Router.OB111, OB111}
+	{Router.OB112, OB112}
+	{Router.OB113, OB113}
+	{Router.OB114, OB114}
+	{Router.OB115, OB115}
+	{Router.OB116, OB116}
+	{Router.OB117, OB117}
+	{Router.OB118, OB118}
+	{Router.OB119, OB119}
+	{Router.OB120, OB120}
+	{Router.OB121, OB121}
+	{Router.OB122, OB122}
+	{Router.OB123, OB123}
+	{Router.OB124, OB124}
+	{Router.OB125, OB125}
+	{Router.OB126, OB126}
+	{Router.OB127, OB127}
+	{Router.OB128, OB128}

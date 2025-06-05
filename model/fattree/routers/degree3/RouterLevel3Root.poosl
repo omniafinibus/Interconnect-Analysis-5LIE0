@@ -1,0 +1,80 @@
+import "../../../common/Fifo.poosl"
+import "RouterProcessLevel3Root.poosl"
+
+cluster class RouterDegree3Level3Root (RouterProcessingTime: Real, Y : Integer)
+
+ports
+	IB1, IB2, IB3, IB4, IB5,
+	IB6, IB7, IB8, IB9, IB10,
+	IB11,IB12,IB13,IB14,IB15,
+	IB16,IB17,IB18,IB19,IB20,
+	IB21,IB22,IB23,IB24,IB25,
+	IB26,IB27,
+	OB1, OB2, OB3, OB4, OB5,
+	OB6, OB7, OB8, OB9, OB10,
+	OB11,OB12,OB13,OB14,OB15,
+	OB16,OB17,OB18,OB19,OB20,
+	OB21,OB22,OB23,OB24,OB25,
+	OB26,OB27
+
+instances
+	Router:RandomUpStreamRouterDegree3Level3Root(ProcessingTime := RouterProcessingTime, NodeY := Y)
+
+channels
+
+	{IB1,  Router.IB1}
+	{IB2,  Router.IB2}
+	{IB3,  Router.IB3}
+	{IB4,  Router.IB4}
+	{IB5,  Router.IB5}
+	{IB6,  Router.IB6}
+	{IB7,  Router.IB7}
+	{IB8,  Router.IB8}
+	{IB9,  Router.IB9}
+	{IB10, Router.IB10}
+	{IB11, Router.IB11}
+	{IB12, Router.IB12}
+	{IB13, Router.IB13}
+	{IB14, Router.IB14}
+	{IB15, Router.IB15}
+	{IB16, Router.IB16}
+	{IB17, Router.IB17}
+	{IB18, Router.IB18}
+	{IB19, Router.IB19}
+	{IB20, Router.IB20}
+	{IB21, Router.IB21}
+	{IB22, Router.IB22}
+	{IB23, Router.IB23}
+	{IB24, Router.IB24}
+	{IB25, Router.IB25}
+	{IB26, Router.IB26}
+	{IB27, Router.IB27}
+
+
+	{Router.OB1,  OB1}
+	{Router.OB2,  OB2}
+	{Router.OB3,  OB3}
+	{Router.OB4,  OB4}
+	{Router.OB5,  OB5}
+	{Router.OB6,  OB6}
+	{Router.OB7,  OB7}
+	{Router.OB8,  OB8}
+	{Router.OB9,  OB9}
+	{Router.OB10, OB10}
+	{Router.OB11, OB11}
+	{Router.OB12, OB12}
+	{Router.OB13, OB13}
+	{Router.OB14, OB14}
+	{Router.OB15, OB15}
+	{Router.OB16, OB16}
+	{Router.OB17, OB17}
+	{Router.OB18, OB18}
+	{Router.OB19, OB19}
+	{Router.OB20, OB20}
+	{Router.OB21, OB21}
+	{Router.OB22, OB22}
+	{Router.OB23, OB23}
+	{Router.OB24, OB24}
+	{Router.OB25, OB25}
+	{Router.OB26, OB26}
+	{Router.OB27, OB27}	

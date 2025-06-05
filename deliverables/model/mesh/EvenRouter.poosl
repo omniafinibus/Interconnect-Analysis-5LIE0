@@ -1,0 +1,113 @@
+import "MeshFlit.poosl"
+
+//LastDirection: N/A == 0, N == 1, E ==, 2 W == 4, S == 3
+
+process class EvenRouter (ProcessingTime: Real)
+ports
+	In, IXL, IYT, IXR, IYB, Out, OXL, OYT OXR, OYB
+messages
+	In?Flit(MeshFlit),
+	IXR?Flit(MeshFlit),
+	IXL?Flit(MeshFlit),
+	IYB?Flit(MeshFlit),
+	IYT?Flit(MeshFlit),
+	Out!Flit(MeshFlit),
+	OXL!Flit(MeshFlit),
+	OXR!Flit(MeshFlit),
+	OYT!Flit(MeshFlit),
+	OYB!Flit(MeshFlit)
+	
+variables
+	
+init
+	TransferFlit()()
+	
+methods
+	/* Receives and forwards a flit for the negative direction */
+	TransferFlit()() |f: Flit|
+	
+		sel
+			In?Flit(f)
+		or
+			IXR?Flit(f)
+		or
+			IXL?Flit(f)
+		or
+			IYB?Flit(f)
+		or
+			IYT?Flit(f)
+		les;
+		
+		delay(ProcessingTime);
+		
+		// Check last direction
+		// N/A == 0
+		if f getLastDirection == 0 then
+			if f getXCoordinate < 0 then
+				f decrXCoordinate;
+				f setLastDirection(2); // East
+				OXR!Flit(f)
+			else if f getXCoordinate > 0 then
+				f incrXCoordinate;
+				f setLastDirection(4); // West
+				OXL!Flit(f)
+			else if (f getXCoordinate == 0) & (f getYCoordinate != 0) then
+				f decrXCoordinate;
+				f setLastDirection(2); // East
+				OXR!Flit(f)
+			else
+				Out!Flit(f)
+			fi fi fi
+		else if f getLastDirection == 1 then
+			if (f getXCoordinate != 0) | (f getYCoordinate != 0) then
+				f decrXCoordinate;
+				f setLastDirection(2); // East
+				OXR!Flit(f)
+			else
+				Out!Flit(f)
+			fi
+		else if f getLastDirection == 2 then
+			if f getYCoordinate < 0 then
+				f incrYCoordinate;
+				f setLastDirection(1); // North
+				OYT!Flit(f)
+			else if f getYCoordinate > 0 then
+				f decrYCoordinate;
+				f setLastDirection(3); // South
+				OYB!Flit(f)
+			else if (f getYCoordinate == 0) & (f getXCoordinate != 0) then
+				f incrYCoordinate;
+				f setLastDirection(1); // North
+				OYT!Flit(f)
+			else
+				Out!Flit(f)
+			fi fi fi
+		else if f getLastDirection == 4 then
+			if (f getXCoordinate != 0) | (f getYCoordinate != 0) then
+				f decrXCoordinate;
+				f setLastDirection(2); // East
+				OXR!Flit(f)
+			else
+				Out!Flit(f)
+			fi
+		else if f getLastDirection == 3 then
+			if f getYCoordinate < 0 then
+				f incrYCoordinate;
+				f setLastDirection(1); // North
+				OYT!Flit(f)
+			else if f getYCoordinate > 0 then
+				f decrYCoordinate;
+				f setLastDirection(3); // South
+				OYB!Flit(f)
+			else if (f getYCoordinate == 0) & (f getXCoordinate != 0) then
+				f incrYCoordinate;
+				f setLastDirection(1); // North
+				OYT!Flit(f)
+			else
+				Out!Flit(f)
+			fi fi fi
+		else
+			Out!Flit(f)
+		fi fi fi fi fi;
+				
+		TransferFlit()()

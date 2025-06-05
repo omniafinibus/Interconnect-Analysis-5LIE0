@@ -1,0 +1,157 @@
+import "routers/degree2/RouterLevel1.poosl"
+import "routers/degree2/RouterLevel2.poosl"
+import "routers/degree2/RouterLevel3.poosl"
+
+cluster class FatTree3LayerDegree2 (FifoCapacity: Integer, FifoProcessingTime: Real, RouterProcessingTime: Real)
+
+ports
+	// Node input ports 
+	In1, In2, In3, In4, 
+	In5, In6, In7, In8, 
+
+	// Node output ports
+	Out1, Out2, Out3, Out4, 
+	Out5, Out6, Out7, Out8, 
+
+
+instances
+	F1UY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F1UY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2UY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F2DY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY1:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY2:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY3:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY4:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY5:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY6:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY7:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	F3DY8:Fifo(Capacity := FifoCapacity, ProcessingTime := FifoProcessingTime)
+	RL1Y1: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 1)
+	RL1Y2: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 2)
+	RL1Y3: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 3)
+	RL1Y4: RouterDegree2Level1(RouterProcessingTime := RouterProcessingTime, Y := 4)
+	RL2Y1: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 1)
+	RL2Y2: RouterDegree2Level2(RouterProcessingTime := RouterProcessingTime, Y := 2)
+	RootRouter: RouterDegree2Level3(RouterProcessingTime := RouterProcessingTime, Y := 1)
+
+channels
+	// In  -> RL1
+	{In1,  RL1Y1.IB1}
+	{In2,  RL1Y1.IB2}
+	{In3,  RL1Y2.IB1}
+	{In4,  RL1Y2.IB2}
+	{In5,  RL1Y3.IB1}
+	{In6,  RL1Y3.IB2}
+	{In7,  RL1Y4.IB1}
+	{In8,  RL1Y4.IB2}
+
+	// RL1 -> F1U
+	{RL1Y1.OT1,  F1UY1.In}
+	{RL1Y1.OT2,  F1UY2.In}
+	{RL1Y2.OT1,  F1UY3.In}
+	{RL1Y2.OT2,  F1UY4.In}
+	{RL1Y3.OT1,  F1UY5.In}
+	{RL1Y3.OT2,  F1UY6.In}
+	{RL1Y4.OT1,  F1UY7.In}
+	{RL1Y4.OT2,  F1UY8.In}
+
+	// F1U -> RL2
+	{F1UY1.Out,  RL2Y1.IB1}
+	{F1UY2.Out,  RL2Y1.IB2}
+	{F1UY3.Out,  RL2Y1.IB3}
+	{F1UY4.Out,  RL2Y1.IB4}
+	{F1UY5.Out,  RL2Y2.IB1}
+	{F1UY6.Out,  RL2Y2.IB2}
+	{F1UY7.Out,  RL2Y2.IB3}
+	{F1UY8.Out,  RL2Y2.IB4}
+
+	// RL2 -> F2U
+	{RL2Y1.OT1, F2UY1.In}
+	{RL2Y1.OT2, F2UY2.In}
+	{RL2Y1.OT3, F2UY3.In}
+	{RL2Y1.OT4, F2UY4.In}
+	{RL2Y2.OT1, F2UY5.In}
+	{RL2Y2.OT2, F2UY6.In}
+	{RL2Y2.OT3, F2UY7.In}
+	{RL2Y2.OT4, F2UY8.In}
+
+	// F2U -> RL3
+	{F2UY1.Out,  RootRouter.IB1}
+	{F2UY2.Out,  RootRouter.IB2}
+	{F2UY3.Out,  RootRouter.IB3}
+	{F2UY4.Out,  RootRouter.IB4}
+	{F2UY5.Out,  RootRouter.IB5}
+	{F2UY6.Out,  RootRouter.IB6}
+	{F2UY7.Out,  RootRouter.IB7}
+	{F2UY8.Out,  RootRouter.IB8}
+
+	// F3D <- RL3
+	{RootRouter.OB1, F3DY1.In}
+	{RootRouter.OB2, F3DY2.In}
+	{RootRouter.OB3, F3DY3.In}
+	{RootRouter.OB4, F3DY4.In}
+	{RootRouter.OB5, F3DY5.In}
+	{RootRouter.OB6, F3DY6.In}
+	{RootRouter.OB7, F3DY7.In}
+	{RootRouter.OB8, F3DY8.In}
+
+	// RL2 <- F3D
+	{F3DY1.Out,  RL2Y1.IT1}
+	{F3DY2.Out,  RL2Y1.IT2}
+	{F3DY3.Out,  RL2Y1.IT3}
+	{F3DY4.Out,  RL2Y1.IT4}
+	{F3DY5.Out,  RL2Y2.IT1}
+	{F3DY6.Out,  RL2Y2.IT2}
+	{F3DY7.Out,  RL2Y2.IT3}
+	{F3DY8.Out,  RL2Y2.IT4}
+
+	// F2D <- RL2
+	{RL2Y1.OB1, F2DY1.In}
+	{RL2Y1.OB2, F2DY2.In}
+	{RL2Y1.OB3, F2DY3.In}
+	{RL2Y1.OB4, F2DY4.In}
+	{RL2Y2.OB1, F2DY5.In}
+	{RL2Y2.OB2, F2DY6.In}
+	{RL2Y2.OB3, F2DY7.In}
+	{RL2Y2.OB4, F2DY8.In}
+
+	// RL1 <- F2D
+	{F2DY1.Out,  RL1Y1.IT1}
+	{F2DY2.Out,  RL1Y1.IT2}
+	{F2DY3.Out,  RL1Y2.IT1}
+	{F2DY4.Out,  RL1Y2.IT2}
+	{F2DY5.Out,  RL1Y3.IT1}
+	{F2DY6.Out,  RL1Y3.IT2}
+	{F2DY7.Out,  RL1Y4.IT1}
+	{F2DY8.Out,  RL1Y4.IT2}
+
+	// Out <- RL1
+	{RL1Y1.OB1, Out1}
+	{RL1Y1.OB2, Out2}
+	{RL1Y2.OB1, Out3}
+	{RL1Y2.OB2, Out4}
+	{RL1Y3.OB1, Out5}
+	{RL1Y3.OB2, Out6}
+	{RL1Y4.OB1, Out7}
+	{RL1Y4.OB2, Out8}

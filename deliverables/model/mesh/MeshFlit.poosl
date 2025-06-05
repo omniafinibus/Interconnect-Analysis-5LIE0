@@ -1,0 +1,49 @@
+import "../common/packet.poosl"
+import "../common/Flit.poosl"
+import "../common/nodecoordination.poosl"
+
+data class MeshFlit extends Flit
+// data class to represent a flit on a mesh topology
+
+variables
+	XCoordinate: Integer, YCoordinate: Integer, LastDirection: Integer
+	//LastDirection: N/A == 0, N == 1, E ==, 2 W == 4, S == 3
+
+methods
+	decrXCoordinate() : Flit
+		XCoordinate := XCoordinate - 1;
+		return self
+
+	decrYCoordinate() : Flit
+		YCoordinate := YCoordinate - 1;
+		return self
+
+	getXCoordinate() : Integer
+		return(XCoordinate)
+		
+	getYCoordinate() : Integer
+		return(YCoordinate)
+		
+	incrXCoordinate() : Flit
+		XCoordinate := XCoordinate + 1;
+		return self
+
+	incrYCoordinate() : Flit
+		YCoordinate := YCoordinate + 1;
+		return self
+
+	getLastDirection() : Flit
+		return(LastDirection)
+
+	setLastDirection(D : Integer) : Flit
+		LastDirection := D;
+		return self
+
+	printString : String
+		return("(" + XCoordinate printString + ", " + YCoordinate printString + ")")
+		
+	setDestinationCoordinates(d: XYCoords) : Flit
+		XCoordinate := d getX;
+		YCoordinate := d getY;
+		return self
+
